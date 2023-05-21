@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "F7J3texpfogc+uA22KqVyuLJcLWmnbM6Zo0eT3uTgU4GWuCaKR5PWwi0Heu4Db4qbL767N52Bx7W+w+umfR69Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\Presentacion\\Presentacion.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rafae\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\rafae\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\rafae\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
+  "logs": []
+}

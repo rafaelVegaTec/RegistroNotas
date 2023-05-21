@@ -1,0 +1,121 @@
+﻿<Window x:Class="Presentacion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:local="clr-namespace:Presentacion"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <StackPanel Orientation="Horizontal">
+        <!--Menu Top-->
+        <StackPanel x:Name="stPrincipal" Background="#304ffe" HorizontalAlignment="Left" Width="175" Height="770">
+
+            <StackPanel>
+                <!--ICONO PERFIL-->
+                <StackPanel x:Name="Circulo" Margin="0,50,0,0" Height="70" Width="70">
+                    <Border BorderBrush="White" BorderThickness="2" Background="#79b700" CornerRadius="100" Height="{Binding ElementName=Circulo,Path=Height}" Width="{Binding ElementName=Circulo,Path=Height}">
+                        <materialDesign:PackIcon Kind="Account" Foreground="White"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
+                    </Border>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,50">
+                    <TextBlock Text="Rafael Vega" FontSize="16" Foreground="White" FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel>
+                <Separator/>
+                <StackPanel Background="#79b700" Width="175" Height="45" Name="stInicio" MouseLeftButtonDown="stInicio_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center" >
+                    <StackPanel Margin="10">
+                        <materialDesign:PackIcon Foreground="White" Kind="Home" Height="25" Width="25"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
+                        <TextBlock Text="Inicio" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator/>
+                <StackPanel Background="Transparent" Width="175" Height="45" Name="stAlumnos" MouseLeftButtonDown="stAlumnos_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Margin="10">
+                        <materialDesign:PackIcon Foreground="White" Kind="AccountSchool" Height="25" Width="25"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
+                        <TextBlock Text="Alumnos" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator/>
+                <StackPanel Background="Transparent" Width="175" Height="45" Name="stMaterias" MouseLeftButtonDown="stMaterias_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Margin="10">
+                        <materialDesign:PackIcon Foreground="White" Kind="BookOpenPageVariant" Height="25" Width="25"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
+                        <TextBlock Text="Materias" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator/>
+                <StackPanel Background="Transparent" Width="175" Height="45" Name="stGrados" MouseLeftButtonDown="stGrados_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Margin="10">
+                        <materialDesign:PackIcon Foreground="White" Kind="Bookshelf" Height="25" Width="25"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
+                        <TextBlock Text="Grados" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator/>
+                <StackPanel Background="Transparent" Width="175" Height="45" Name="stNotas" MouseLeftButtonDown="stNotas_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Margin="10">
+                        <materialDesign:PackIcon Foreground="White" Kind="Notebook" Height="25" Width="25"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
+                        <TextBlock Text="Notas" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator/>
+                <StackPanel Background="Transparent" Width="175" Height="45" Name="stAsistencia" MouseLeftButtonDown="stAsistencia_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Margin="10">
+                        <materialDesign:PackIcon Foreground="White" Kind="CalendarMonth" Height="25" Width="25"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
+                        <TextBlock Text="Asistencia" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator/>
+                <StackPanel Background="Transparent" Width="175" Height="45" Name="stDocentes" MouseLeftButtonDown="stDocentes_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Margin="10">
+                        <materialDesign:PackIcon Foreground="White" Kind="AccountGroup" Height="25" Width="25"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
+                        <TextBlock Text="Docentes" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator/>
+                <StackPanel Background="Transparent" Width="175" Height="45" Name="stReportes" MouseLeftButtonDown="stReportes_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Margin="10">
+                        <materialDesign:PackIcon Foreground="White" Kind="FileChart" Height="25" Width="25"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
+                        <TextBlock Text="Reportes" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+                <Separator/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Background="Transparent" Margin="10" Width="1085">
+
+        </StackPanel>
+    </StackPanel>
+</Window>
