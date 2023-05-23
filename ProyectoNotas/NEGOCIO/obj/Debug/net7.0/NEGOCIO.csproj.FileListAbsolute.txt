@@ -1,0 +1,17 @@
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\bin\Debug\net7.0\NEGOCIO.deps.json
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\bin\Debug\net7.0\NEGOCIO.dll
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\bin\Debug\net7.0\NEGOCIO.pdb
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\bin\Debug\net7.0\DATOS.dll
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\bin\Debug\net7.0\ENTIDADES.dll
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\bin\Debug\net7.0\DATOS.pdb
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\bin\Debug\net7.0\ENTIDADES.pdb
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\NEGOCIO.csproj.AssemblyReference.cache
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\NEGOCIO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\NEGOCIO.AssemblyInfoInputs.cache
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\NEGOCIO.AssemblyInfo.cs
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\NEGOCIO.csproj.CoreCompileInputs.cache
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\NEGOCIO.csproj.CopyComplete
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\NEGOCIO.dll
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\refint\NEGOCIO.dll
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\NEGOCIO.pdb
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\NEGOCIO\obj\Debug\net7.0\ref\NEGOCIO.dll

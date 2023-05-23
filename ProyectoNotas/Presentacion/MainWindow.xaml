@@ -16,12 +16,12 @@
         Title="MainWindow" Height="768" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <StackPanel Orientation="Horizontal">
         <!--Menu Top-->
-        <StackPanel x:Name="stPrincipal" Background="#304ffe" HorizontalAlignment="Left" Width="175" Height="770">
+        <StackPanel x:Name="stPrincipal" Background="#673ab7" HorizontalAlignment="Left" Width="175" Height="770">
 
             <StackPanel>
                 <!--ICONO PERFIL-->
                 <StackPanel x:Name="Circulo" Margin="0,50,0,0" Height="70" Width="70">
-                    <Border BorderBrush="White" BorderThickness="2" Background="#79b700" CornerRadius="100" Height="{Binding ElementName=Circulo,Path=Height}" Width="{Binding ElementName=Circulo,Path=Height}">
+                    <Border BorderBrush="White" BorderThickness="2" Background="#b388ff" CornerRadius="100" Height="{Binding ElementName=Circulo,Path=Height}" Width="{Binding ElementName=Circulo,Path=Height}">
                         <materialDesign:PackIcon Kind="Account" Foreground="White"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
                     </Border>
                 </StackPanel>
@@ -32,7 +32,7 @@
 
             <StackPanel>
                 <Separator/>
-                <StackPanel Background="#79b700" Width="175" Height="45" Name="stInicio" MouseLeftButtonDown="stInicio_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center" >
+                <StackPanel Background="#b388ff" Width="175" Height="45" Name="stInicio" MouseLeftButtonDown="stInicio_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center" >
                     <StackPanel Margin="10">
                         <materialDesign:PackIcon Foreground="White" Kind="Home" Height="25" Width="25"/>
                     </StackPanel>
@@ -114,7 +114,7 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Background="Transparent" Margin="10" Width="1085">
+        <StackPanel Name="stPanelCentro" Background="Transparent" Width="1105">
 
         </StackPanel>
     </StackPanel>
