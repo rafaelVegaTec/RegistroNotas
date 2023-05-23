@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DATOS
 {
@@ -32,17 +33,43 @@ namespace DATOS
             }
             finally
             {
-                if(sqlCon.State == ConnectionState.Open)
+                if (sqlCon.State == ConnectionState.Open)
                 {
                     sqlCon.Close();
                 }
             }
         }
 
-        //public string InsertarAlumno(Alumno obj)
-        //{
+        public string InsertarAlumno(Alumno obj)
+        {
+            string respuesta = "";
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = Conexion.GetInstancia().CrearConexcion();
+                SqlCommand comando = new SqlCommand("CrearAlumno", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = obj.nombreAlumno;
+                comando.Parameters.Add("@edad", SqlDbType.Int).Value = obj.edad;
+                comando.Parameters.Add("@fechaNacimiento", SqlDbType.VarChar).Value = obj.fechaNacimiento;
+                comando.Parameters.Add("@telefonoAlumno", SqlDbType.VarChar).Value = obj.telefonoAlumno;
+                comando.Parameters.Add("@telefonoEncargado", SqlDbType.VarChar).Value = obj.telefonoEncargado;
+                comando.Parameters.Add("@emailAlumno", SqlDbType.VarChar).Value = obj.emailAlumno;
+                comando.Parameters.Add("@Estado", SqlDbType.Bit).Value = true;
+                sqlCon.Open();
+                respuesta = comando.ExecuteNonQuery() == 1 ? "Ok" : "Error";
+            }
+            catch (Exception ex)
+            {
 
-        //}
+                respuesta = ex.Message;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }                
+            }
+            return respuesta;
+        }
 
         //public string EditarAlumno(Alumno obj)
         //{

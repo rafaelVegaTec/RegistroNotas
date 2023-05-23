@@ -7,12 +7,24 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="UserController\Alertas\paExito.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserController\Alertas\ucExito.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserController\AlumnosController\AlumnosHome.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserController\Alertas\paExito.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserController\Alertas\ucExito.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserController\AlumnosController\AlumnosHome.xaml">

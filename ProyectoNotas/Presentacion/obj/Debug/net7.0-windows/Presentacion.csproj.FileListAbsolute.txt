@@ -38,3 +38,7 @@ C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\bin\Debug\net
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\bin\Debug\net7.0-windows\NEGOCIO.pdb
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\bin\Debug\net7.0-windows\DATOS.pdb
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\bin\Debug\net7.0-windows\ENTIDADES.pdb
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\UserController\Alertas\paExito.g.cs
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\UserController\Alertas\paExito.baml
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\UserController\Alertas\ucExito.g.cs
+C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\UserController\Alertas\ucExito.baml

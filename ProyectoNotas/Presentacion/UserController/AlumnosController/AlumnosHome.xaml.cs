@@ -1,6 +1,8 @@
 ﻿using DATOS;
 using ENTIDADES;
+using MaterialDesignThemes.Wpf;
 using NEGOCIO;
+using Presentacion.UserController.Alertas;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -38,10 +40,10 @@ namespace Presentacion.UserController.AlumnosController
         {
             CrearAlumnos.IsEnabled = false;
             ActualizarAlumnos.IsEnabled = true;
-            tbGeneralAlumnos.SelectedIndex = 2;
+            tbGeneralAlumnos.SelectedIndex = 2;            
 
             foreach (DataRowView drv in dtAlumnos.Items)
-            {
+            {                
                 IdAlumno = (int)drv.Row.ItemArray[0];
                 txtNombre.Text = drv.Row.ItemArray[1].ToString();
                 txtEdad.Text = drv.Row.ItemArray[2].ToString();
@@ -59,7 +61,11 @@ namespace Presentacion.UserController.AlumnosController
 
         private void btnCrearAlum_Click(object sender, RoutedEventArgs e)
         {
-
+            //panelAlumnos.Children.Clear();            
+            ucExito aExito = new ucExito();        
+            aExito.Height = 50;
+            aExito.Width = 200;
+            stAlertas.Children.Add(aExito);
         }
 
         private void BtnCanCreAlum_Click(object sender, RoutedEventArgs e)
@@ -79,6 +85,6 @@ namespace Presentacion.UserController.AlumnosController
             txtTelAlum.Text = "";
             txtTelEnc.Text = "";
             txtCorreo.Text = "";
-        }
+        }       
     }
 }

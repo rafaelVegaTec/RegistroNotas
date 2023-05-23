@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\App.xaml
-2-1610354347
+4-1289871967
 
-6577818506
+8-410003642
 205174603986
-MainWindow.xaml;UserController\AlumnosController\AlumnosHome.xaml;
+MainWindow.xaml;UserController\Alertas\paExito.xaml;UserController\Alertas\ucExito.xaml;UserController\AlumnosController\AlumnosHome.xaml;
 
-False
+True
 
