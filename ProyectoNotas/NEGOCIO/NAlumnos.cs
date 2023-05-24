@@ -17,10 +17,22 @@ namespace NEGOCIO
             return dAlum.ListarAlumnos();
         }
 
+        public DataTable FiltrarAlumnos(string valor)
+        {
+            DAlumno dAlum = new DAlumno();
+            return dAlum.FiltrarAlumnos(valor);
+        }
+
         public string InsertarAlumno(Alumno obj)
         {
             DAlumno dAlumno = new DAlumno();
             return dAlumno.InsertarAlumno(obj);
+        }
+
+        public string ActualizarAlumno(Alumno obj)
+        {
+            DAlumno dAlumno = new DAlumno();
+            return dAlumno.EditarAlumno(obj);
         }
     }
 }

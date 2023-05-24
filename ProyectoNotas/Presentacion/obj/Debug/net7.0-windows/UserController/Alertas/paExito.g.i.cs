@@ -56,7 +56,7 @@ namespace Presentacion.UserController.Alertas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Presentacion;V1.0.0.0;component/usercontroller/alertas/paexito.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Presentacion;component/usercontroller/alertas/paexito.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\UserController\Alertas\paExito.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

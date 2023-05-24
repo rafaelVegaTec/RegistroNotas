@@ -16,8 +16,8 @@
              d:DesignHeight="768" d:DesignWidth="1105">
     <StackPanel Name="panelAlumnos">
         <TabControl x:Name="tbGeneralAlumnos" Style="{StaticResource MaterialDesignFilledTabControl}">
-            <TabItem Header="LISTAR ALUMNOS">
-                <StackPanel>
+            <TabItem Name="ListaAlumnos" Header="LISTAR ALUMNOS">
+                <StackPanel Height="720">
                     <!---Filtros y modificacion -->
                     <StackPanel HorizontalAlignment="Center">
                         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="20">
@@ -27,7 +27,7 @@
                                         <TextBlock Text="Buscar Alumno:" FontSize="16" FontWeight="Bold" Foreground="Black"/>
                                     </StackPanel>
                                     <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
-                                        <TextBox Width="250" FontSize="16"/>
+                                        <TextBox Name="txtFiltrar" Width="250" FontSize="16"/>
                                     </StackPanel>
                                     <StackPanel VerticalAlignment="Center" Margin="10,0,0,0" Orientation="Horizontal">
                                         <Button Name="btnBuscar" Click="btnBuscar_Click" Background="#fbc02d" ToolTip="Buscar Alumno">
@@ -47,18 +47,21 @@
 
                     </StackPanel>
 
-                    <DataGrid Height="577" ItemsSource="{Binding}" Name="dtAlumnos" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <DataGrid Height="510" ItemsSource="{Binding}" Name="dtAlumnos" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding idAlumno}" Visibility="Hidden"/>
                             <DataGridTextColumn Header="NOMBRE" Binding="{Binding nombreAlumno}" IsReadOnly="True" Width="250"/>
                             <DataGridTextColumn Header="EDAD" Binding="{Binding edad}" IsReadOnly="True" Width="70"/>
-                            <DataGridTextColumn Header="FECHA NACIMIENTO" Binding="{Binding fechaNacimiento}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="FECHA NACIMIENTO" Binding="{Binding fechaNacimiento}" IsReadOnly="True" Width="180"/>
                             <DataGridTextColumn Header="TELEFONO ALUMNO" Binding="{Binding telefonoAlumno}" IsReadOnly="True" Width="auto"/>
                             <DataGridTextColumn Header="TELEFONO ENCARGADO" Binding="{Binding telefonoEncargado}" IsReadOnly="True" Width="auto"/>
                             <DataGridTextColumn Header="CORREO ALUMNO" Binding="{Binding emailAlumno}" IsReadOnly="True" Width="235"/>
                             <DataGridCheckBoxColumn Header="Estado" Binding="{Binding Estado}" Visibility="Hidden"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    
+                    <StackPanel Name="stAlertasExito" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
                 </StackPanel>
             </TabItem>
 
@@ -74,7 +77,10 @@
                                             <materialDesign:PackIcon Kind="Account" Width="25" Height="25" Margin="5"/>
                                         </StackPanel>
                                         <StackPanel VerticalAlignment="Center" Margin="8">
-                                            <TextBlock Text="Nombre Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
                                             <Separator Width="92" HorizontalAlignment="Left"/>
                                             <TextBox Name="txtNomCre" Width="250" Foreground="Black"/>
                                         </StackPanel>
@@ -87,9 +93,12 @@
                                             <materialDesign:PackIcon Kind="CalendarAccount" Width="25" Height="25" Margin="5"/>
                                         </StackPanel>
                                         <StackPanel VerticalAlignment="Center" Margin="8">
-                                            <TextBlock Text="Edad Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Edad Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
                                             <Separator Width="75" HorizontalAlignment="Left"/>
-                                            <TextBox Width="250" Foreground="Black"/>
+                                            <TextBox Name="txtEdadCre" KeyDown="txtEdadCre_KeyDown" Width="250" Foreground="Black"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -100,9 +109,12 @@
                                             <materialDesign:PackIcon Kind="CalendarMonth" Width="25" Height="25" Margin="5"/>
                                         </StackPanel>
                                         <StackPanel VerticalAlignment="Center" Margin="8">
-                                            <TextBlock Text="Fecha Nacimiento:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Fecha Nacimiento:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
                                             <Separator Width="103" HorizontalAlignment="Left"/>
-                                            <DatePicker Width="250" Foreground="Black"/>
+                                            <DatePicker Name="txtFechaNaCre" Width="250" Foreground="Black"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -115,7 +127,7 @@
                                         <StackPanel VerticalAlignment="Center" Margin="8">
                                             <TextBlock Text="Teléfono Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
                                             <Separator Width="98" HorizontalAlignment="Left"/>
-                                            <TextBox Width="250" Foreground="Black"/>
+                                            <TextBox Name="txtTelAlumCre"  Width="250" Foreground="Black"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -128,7 +140,7 @@
                                         <StackPanel VerticalAlignment="Center" Margin="8">
                                             <TextBlock Text="Teléfono Encargado:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
                                             <Separator Width="113" HorizontalAlignment="Left"/>
-                                            <TextBox Width="250" Foreground="Black"/>
+                                            <TextBox Name="txtTelEncCre"  Width="250" Foreground="Black"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -141,16 +153,16 @@
                                         <StackPanel VerticalAlignment="Center" Margin="8">
                                             <TextBlock Text="Correo Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
                                             <Separator Width="85" HorizontalAlignment="Left"/>
-                                            <TextBox Width="250" Foreground="Black"/>
+                                            <TextBox Name="txtCorreoCre"  Width="250" Foreground="Black"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
 
-                                <StackPanel Orientation="Horizontal" Margin="0,10,0,5" Width="200">
-                                    <Button Name="btnCrearAlum" Click="btnCrearAlum_Click" Background="#85bb5c" Height="30" Width="80">
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Width="140">
+                                    <Button Name="btnCrearAlum" Click="btnCrearAlum_Click" Background="#85bb5c" Height="40" Width="50">
                                         <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"/>
                                     </Button>
-                                    <Button Name="BtnCanCreAlum" Click="BtnCanCreAlum_Click" Background="#d50000" Height="30" Width="80" Margin="40,0,0,0">
+                                    <Button Name="BtnCanCreAlum" Click="BtnCanCreAlum_Click" Background="#d50000" Height="40" Width="50" Margin="40,0,0,0">
                                         <materialDesign:PackIcon Kind="CloseCircle" Width="20" Height="20"/>
                                     </Button>
                                 </StackPanel>
@@ -158,98 +170,123 @@
 
                         </GroupBox>
                     </StackPanel>
+                    
                     <StackPanel Name="stAlertas" Margin="20" HorizontalAlignment="Right">
                     </StackPanel>
                 </StackPanel>
             </TabItem>
 
             <!--Tab Editar alumno-->
-            <TabItem Name="ActualizarAlumnos" Header="CREAR ALUMNO" IsEnabled="False">
-                <StackPanel Width="400" Margin="0, 80,0,0">
-                    <GroupBox Margin="16" Header="Información Alumno">
-                        <StackPanel Width="305">
-                            <Border BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel VerticalAlignment="Center">
-                                        <materialDesign:PackIcon Kind="Account" Width="25" Height="25" Margin="5"/>
+            <TabItem Name="ModificarAlumnos" Header="MODIFICAR ALUMNO" IsEnabled="False">
+                <StackPanel Width="1105" Height="720">
+                    <StackPanel Width="400" Margin="0,60,0,0">
+                        <GroupBox FontSize="16" FontStyle="Italic" Header="Información Alumno">
+                            <StackPanel Width="305">
+                                <Border BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="Account" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="92" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtNom" Width="250" Foreground="Black"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel VerticalAlignment="Center" Margin="8">
-                                        <TextBlock Text="Nombre Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                        <Separator Width="92" HorizontalAlignment="Left"/>
-                                        <TextBox Name="txtNombre" Width="250" Foreground="Black"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
+                                </Border>
 
-                            <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel VerticalAlignment="Center">
-                                        <materialDesign:PackIcon Kind="CalendarAccount" Width="25" Height="25" Margin="5"/>
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="CalendarAccount" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Edad Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="75" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtEdad" KeyDown="txtEdadCre_KeyDown" Width="250" Foreground="Black"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel VerticalAlignment="Center" Margin="8">
-                                        <TextBlock Text="Edad Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                        <Separator Width="75" HorizontalAlignment="Left"/>
-                                        <TextBox Name="txtEdad" Width="250" Foreground="Black"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
+                                </Border>
 
-                            <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel VerticalAlignment="Center">
-                                        <materialDesign:PackIcon Kind="CalendarMonth" Width="25" Height="25" Margin="5"/>
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="CalendarMonth" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Fecha Nacimiento:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="103" HorizontalAlignment="Left"/>
+                                            <DatePicker Name="txtFechaNa" Width="250" Foreground="Black"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel VerticalAlignment="Center" Margin="8">
-                                        <TextBlock Text="Fecha Nacimiento:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                        <Separator Width="103" HorizontalAlignment="Left"/>
-                                        <DatePicker Name="txtFechaNa" Width="250" Foreground="Black"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
+                                </Border>
 
-                            <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel VerticalAlignment="Center">
-                                        <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Margin="5"/>
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <TextBlock Text="Teléfono Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                            <Separator Width="98" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtTelAlum"  Width="250" Foreground="Black"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel VerticalAlignment="Center" Margin="8">
-                                        <TextBlock Text="Teléfono Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                        <Separator Width="98" HorizontalAlignment="Left"/>
-                                        <TextBox Name="txtTelAlum" Width="250" Foreground="Black"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
+                                </Border>
 
-                            <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel VerticalAlignment="Center">
-                                        <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Margin="5"/>
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <TextBlock Text="Teléfono Encargado:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                            <Separator Width="113" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtTelEnc"  Width="250" Foreground="Black"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel VerticalAlignment="Center" Margin="8">
-                                        <TextBlock Text="Teléfono Encargado:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                        <Separator Width="113" HorizontalAlignment="Left"/>
-                                        <TextBox Name="txtTelEnc" Width="250" Foreground="Black"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
+                                </Border>
 
-                            <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel VerticalAlignment="Center">
-                                        <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="5"/>
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <TextBlock Text="Correo Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                            <Separator Width="85" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtCorreo"  Width="250" Foreground="Black"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel VerticalAlignment="Center" Margin="8">
-                                        <TextBlock Text="Correo Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                        <Separator Width="85" HorizontalAlignment="Left"/>
-                                        <TextBox Name="txtCorreo" Width="250" Foreground="Black"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
+                                </Border>
 
-                    </GroupBox>
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Width="140">
+                                    <Button Name="btnModificarAlum" Click="btnModificarAlum_Click" Background="#85bb5c" Height="40" Width="50">
+                                        <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"/>
+                                    </Button>
+                                    <Button Name="BtnCanModAlum" Click="BtnCanModAlum_Click" Background="#d50000" Height="40" Width="50" Margin="40,0,0,0">
+                                        <materialDesign:PackIcon Kind="CloseCircle" Width="20" Height="20"/>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </GroupBox>
+                    </StackPanel>
+
+                    <StackPanel Name="stAlertasMod" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
                 </StackPanel>
             </TabItem>
+            
             <TabItem Header="ALUMNOS ELIMINADOS">
                 <TextBlock
       Margin="8"

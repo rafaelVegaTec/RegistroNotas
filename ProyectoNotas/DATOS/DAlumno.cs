@@ -40,6 +40,33 @@ namespace DATOS
             }
         }
 
+        public DataTable FiltrarAlumnos(string valor)
+        {
+            SqlDataReader resultado = null;
+            DataTable tabla = new DataTable();
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = Conexion.GetInstancia().CrearConexcion();
+                SqlCommand comando = new SqlCommand("FiltrarAlumno", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("@valor", SqlDbType.VarChar).Value = valor;
+                sqlCon.Open();
+                resultado = comando.ExecuteReader();
+                tabla.Load(resultado);
+                return tabla;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+
+        }
+
         public string InsertarAlumno(Alumno obj)
         {
             string respuesta = "";
@@ -66,15 +93,40 @@ namespace DATOS
             }
             finally
             {
-                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }                
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
             }
             return respuesta;
         }
 
-        //public string EditarAlumno(Alumno obj)
-        //{
-
-        //}
+        public string EditarAlumno(Alumno obj)
+        {
+            string respuesta = "";
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = Conexion.GetInstancia().CrearConexcion();
+                SqlCommand comando = new SqlCommand("ActualizarAlumno", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("@idAlumno", SqlDbType.VarChar).Value = obj.idAlumno;
+                comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = obj.nombreAlumno;
+                comando.Parameters.Add("@edad", SqlDbType.Int).Value = obj.edad;
+                comando.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime).Value = obj.fechaNacimiento;
+                comando.Parameters.Add("@telefonoAlumno", SqlDbType.VarChar).Value = obj.telefonoAlumno;
+                comando.Parameters.Add("@telefonoEncargado", SqlDbType.VarChar).Value = obj.telefonoEncargado;
+                comando.Parameters.Add("@emailAlumno", SqlDbType.VarChar).Value = obj.emailAlumno;
+                sqlCon.Open();
+                respuesta = comando.ExecuteNonQuery() == 1 ? "Ok" : "Error";
+            }
+            catch (Exception ex)
+            {
+                respuesta = ex.Message;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+            return respuesta;
+        }
 
         //public string DesactivarAlumnp(int id)
         //{
