@@ -128,9 +128,28 @@ namespace DATOS
             return respuesta;
         }
 
-        //public string DesactivarAlumnp(int id)
-        //{
-
-        //}
+        public string DesactivarAlumnp(int id)
+        {
+            string resultado;
+            SqlConnection con = new SqlConnection();
+            try
+            {
+                con = Conexion.GetInstancia().CrearConexcion();
+                SqlCommand comando = new SqlCommand("DesactivarAlumno", con);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("@idAlumno", SqlDbType.Int).Value = id;
+                con.Open();
+                resultado = comando.ExecuteNonQuery() == 1 ? "Ok" : "Error";
+            }
+            catch (Exception ex)
+            {
+                resultado = ex.Message;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open) con.Close();
+            }
+            return resultado;
+        }
     }
 }

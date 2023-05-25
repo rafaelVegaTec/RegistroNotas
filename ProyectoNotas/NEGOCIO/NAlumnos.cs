@@ -34,5 +34,11 @@ namespace NEGOCIO
             DAlumno dAlumno = new DAlumno();
             return dAlumno.EditarAlumno(obj);
         }
+
+        public string DesactivarAlumno(int Id)
+        {
+            DAlumno dAlumno=new DAlumno();
+            return dAlumno.DesactivarAlumnp(Id);
+        }
     }
 }

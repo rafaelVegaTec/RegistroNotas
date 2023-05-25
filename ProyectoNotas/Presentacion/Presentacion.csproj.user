@@ -13,6 +13,9 @@
     <Compile Update="UserController\Alertas\ucCancelar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserController\Alertas\ucEliminar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserController\Alertas\ucExito.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserController\Alertas\ucCancelar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserController\Alertas\ucEliminar.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserController\Alertas\ucExito.xaml">

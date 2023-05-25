@@ -37,8 +37,10 @@ namespace Presentacion.UserController.AlumnosController
         ucCamObli aCamObli = new ucCamObli();
         ucCancelar aCancelar = new ucCancelar();
 
+
         //Isntancias Apoyo
         DispatcherTimer timer = new DispatcherTimer();
+
 
         int IdAlumno = 0;
 
@@ -209,6 +211,26 @@ namespace Presentacion.UserController.AlumnosController
             EjecutarAlerta();
         }
 
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            Notificacion not = new Notificacion();
+            ucEliminar aEliminar = new ucEliminar(not);
+            aEliminar.ShowDialog();
+            var resultado = not.valor_confirmacion;
+            if (resultado.Equals("Ok"))
+            {
+                string respuesta = nAlumnos.DesactivarAlumno(IdAlumno);
+                if (respuesta.Equals("Ok"))
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+        }
+
         private void txtEdadCre_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
@@ -257,5 +279,10 @@ namespace Presentacion.UserController.AlumnosController
             timer.Stop();
         }
         #endregion
+    }
+
+    public class Notificacion
+    {
+        public string? valor_confirmacion { get; set; }
     }
 }

@@ -18,48 +18,56 @@
         <TabControl x:Name="tbGeneralAlumnos" Style="{StaticResource MaterialDesignFilledTabControl}">
             <TabItem Name="ListaAlumnos" Header="LISTAR ALUMNOS">
                 <StackPanel Height="720">
+                    
                     <!---Filtros y modificacion -->
                     <StackPanel HorizontalAlignment="Center">
                         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="20">
                             <StackPanel Orientation="Horizontal">
-                                <StackPanel VerticalAlignment="Center" Margin="10" Orientation="Horizontal">
+                                <StackPanel Margin="10" Orientation="Horizontal">
                                     <StackPanel VerticalAlignment="Center">
                                         <TextBlock Text="Buscar Alumno:" FontSize="16" FontWeight="Bold" Foreground="Black"/>
                                     </StackPanel>
                                     <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
                                         <TextBox Name="txtFiltrar" Width="250" FontSize="16"/>
                                     </StackPanel>
-                                    <StackPanel VerticalAlignment="Center" Margin="10,0,0,0" Orientation="Horizontal">
+                                    <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
                                         <Button Name="btnBuscar" Click="btnBuscar_Click" Background="#fbc02d" ToolTip="Buscar Alumno">
                                             <materialDesign:PackIcon Kind="AccountFilter" />
                                         </Button>
-                                        <Button Name="MOD" Click="MOD_Click" Background="#3949ab" ToolTip="Editar Alumno" Margin="10,0,0,0">
-                                            <materialDesign:PackIcon Kind="AccountEdit"/>
-                                        </Button>
-                                        <Button Name="btnEliminar" Click="MOD_Click" Background="Red" ToolTip="Eliminar Alumno" Margin="10,0,0,0">
-                                            <materialDesign:PackIcon Kind="Delete" />
-                                        </Button>
                                     </StackPanel>
-
                                 </StackPanel>
                             </StackPanel>
                         </Border>
-
                     </StackPanel>
 
                     <DataGrid Height="510" ItemsSource="{Binding}" Name="dtAlumnos" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding idAlumno}" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="NOMBRE" Binding="{Binding nombreAlumno}" IsReadOnly="True" Width="250"/>
+                            <DataGridTextColumn Header="NOMBRE" Binding="{Binding nombreAlumno}" IsReadOnly="True" Width="220"/>
                             <DataGridTextColumn Header="EDAD" Binding="{Binding edad}" IsReadOnly="True" Width="70"/>
                             <DataGridTextColumn Header="FECHA NACIMIENTO" Binding="{Binding fechaNacimiento}" IsReadOnly="True" Width="180"/>
-                            <DataGridTextColumn Header="TELEFONO ALUMNO" Binding="{Binding telefonoAlumno}" IsReadOnly="True" Width="auto"/>
-                            <DataGridTextColumn Header="TELEFONO ENCARGADO" Binding="{Binding telefonoEncargado}" IsReadOnly="True" Width="auto"/>
-                            <DataGridTextColumn Header="CORREO ALUMNO" Binding="{Binding emailAlumno}" IsReadOnly="True" Width="235"/>
+                            <DataGridTextColumn Header="TEL. ALUMNO" Binding="{Binding telefonoAlumno}" IsReadOnly="True" Width="auto"/>
+                            <DataGridTextColumn Header="TEL. ENCARGADO" Binding="{Binding telefonoEncargado}" IsReadOnly="True" Width="auto"/>
+                            <DataGridTextColumn Header="CORREO ALUMNO" Binding="{Binding emailAlumno}" IsReadOnly="True" Width="200"/>
                             <DataGridCheckBoxColumn Header="Estado" Binding="{Binding Estado}" Visibility="Hidden"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Name="MOD" Click="MOD_Click" Background="#3949ab" ToolTip="Editar Alumno" Margin="5,0,0,0">
+                                                <materialDesign:PackIcon Kind="AccountEdit"/>
+                                            </Button>
+                                            <Button Name="btnEliminar" Click="btnEliminar_Click" Background="Red" ToolTip="Eliminar Alumno" Margin="5,0,0,0">
+                                                <materialDesign:PackIcon Kind="Delete" />
+                                            </Button>
+                                        </StackPanel>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    
+
                     <StackPanel Name="stAlertasExito" Margin="20" HorizontalAlignment="Right">
                     </StackPanel>
                 </StackPanel>
@@ -170,7 +178,7 @@
 
                         </GroupBox>
                     </StackPanel>
-                    
+
                     <StackPanel Name="stAlertas" Margin="20" HorizontalAlignment="Right">
                     </StackPanel>
                 </StackPanel>
@@ -286,7 +294,7 @@
                     </StackPanel>
                 </StackPanel>
             </TabItem>
-            
+
             <TabItem Header="ALUMNOS ELIMINADOS">
                 <TextBlock
       Margin="8"
