@@ -33,10 +33,10 @@ namespace Presentacion.UserController.AlumnosController
         NAlumnos nAlumnos = new NAlumnos();
 
         //Instancias de UserControllers
-        ucExito aExito = new ucExito();
+        ucExitoAlerta aExito = new ucExitoAlerta();
+        ucExisteAlumno aExiste = new ucExisteAlumno();
         ucCamObli aCamObli = new ucCamObli();
         ucCancelar aCancelar = new ucCancelar();
-
 
         //Isntancias Apoyo
         DispatcherTimer timer = new DispatcherTimer();
@@ -57,6 +57,7 @@ namespace Presentacion.UserController.AlumnosController
             CrearAlumnos.IsEnabled = false;
             ModificarAlumnos.IsEnabled = true;
             ListaAlumnos.IsEnabled = false;
+            tbEliminar.IsEnabled = false;
             tbGeneralAlumnos.SelectedIndex = 2;
 
             DataRowView modAlumnos = (DataRowView)dtAlumnos.SelectedItem;
@@ -73,6 +74,11 @@ namespace Presentacion.UserController.AlumnosController
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
             dtAlumnos.DataContext = nAlumnos.FiltrarAlumnos(txtFiltrar.Text);
+        }
+
+        private void btnBuscarElim_Click(object sender, RoutedEventArgs e)
+        {
+            dtAlumnosElim.DataContext = nAlumnos.FiltrarAlumnosDesactivados(txtFiltrarElim.Text);
         }
 
         private void btnCrearAlum_Click(object sender, RoutedEventArgs e)
@@ -118,13 +124,20 @@ namespace Presentacion.UserController.AlumnosController
                                 EjecutarAlerta();
                             }
                             break;
+                        case "existe":
+                            aExiste.Width = 200;
+                            aExiste.Height = 50;
+
+                            if (!aExiste.IsVisible)
+                            {
+                                stAlertas.Children.Add(aExiste);
+                                EjecutarAlerta();
+                            }
+                            break;
                         default:
+                            MessageBox.Show("Error: Contacte al administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                             break;
                     }
-                }
-                else
-                {
-
                 }
             }
         }
@@ -166,6 +179,7 @@ namespace Presentacion.UserController.AlumnosController
                             CrearAlumnos.IsEnabled = true;
                             ModificarAlumnos.IsEnabled = false;
                             ListaAlumnos.IsEnabled = true;
+                            tbEliminar.IsEnabled = true;
                             CargarGrid();
                             aExito.Height = 50;
                             aExito.Width = 200;
@@ -176,12 +190,9 @@ namespace Presentacion.UserController.AlumnosController
                             }
                             break;
                         default:
+                            MessageBox.Show("Error: Contacte al administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                             break;
                     }
-                }
-                else
-                {
-
                 }
             }
         }
@@ -204,6 +215,7 @@ namespace Presentacion.UserController.AlumnosController
             CrearAlumnos.IsEnabled = true;
             ModificarAlumnos.IsEnabled = false;
             ListaAlumnos.IsEnabled = true;
+            tbEliminar.IsEnabled = true;
             LimpiarCampos();
             aCancelar.Height = 50;
             aCancelar.Width = 200;
@@ -215,6 +227,8 @@ namespace Presentacion.UserController.AlumnosController
         {
             Notificacion not = new Notificacion();
             ucEliminar aEliminar = new ucEliminar(not);
+            DataRowView row = (DataRowView)dtAlumnos.SelectedItem;
+            IdAlumno = (int)row.Row.ItemArray[0];
             aEliminar.ShowDialog();
             var resultado = not.valor_confirmacion;
             if (resultado.Equals("Ok"))
@@ -222,11 +236,18 @@ namespace Presentacion.UserController.AlumnosController
                 string respuesta = nAlumnos.DesactivarAlumno(IdAlumno);
                 if (respuesta.Equals("Ok"))
                 {
-
+                    CargarGrid();
+                    aExito.Height = 50;
+                    aExito.Width = 200;
+                    if (!aExito.IsVisible)
+                    {
+                        stAlertasExito.Children.Add(aExito);
+                        EjecutarAlerta();
+                    }
                 }
                 else
                 {
-
+                    MessageBox.Show("Error: Contacte al administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -238,13 +259,38 @@ namespace Presentacion.UserController.AlumnosController
             else
                 e.Handled = true;
         }
+
+        private void btnActivar_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView row = (DataRowView)dtAlumnosElim.SelectedItem;
+            IdAlumno = (int)row.Row.ItemArray[0];
+            string respuesta = nAlumnos.ActivarAlumno(IdAlumno);
+            if (respuesta.Equals("Ok"))
+            {
+                CargarGrid();
+                tbGeneralAlumnos.SelectedIndex = 0;
+                aExito.Height = 50;
+                aExito.Width = 200;
+                if (!aExito.IsVisible)
+                {
+                    stAlertasExito.Children.Add(aExito);
+                    EjecutarAlerta();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: Contacte al administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         #endregion
 
         #region Metodos
         private void CargarGrid()
         {
             dtAlumnos.DataContext = nAlumnos.ListarAlumnos();
+            dtAlumnosElim.DataContext = nAlumnos.ListaAlumnosDesactivados();
         }
+
         private void LimpiarCampos()
         {
             IdAlumno = 0;
@@ -276,13 +322,9 @@ namespace Presentacion.UserController.AlumnosController
             stAlertas.Children.Remove(aCamObli);
             stAlertasExito.Children.Remove(aCancelar);
             stAlertasMod.Children.Remove(aCamObli);
+            stAlertas.Children.Remove(aExiste);
             timer.Stop();
         }
-        #endregion
-    }
-
-    public class Notificacion
-    {
-        public string? valor_confirmacion { get; set; }
+        #endregion        
     }
 }

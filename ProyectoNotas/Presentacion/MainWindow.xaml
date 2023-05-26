@@ -54,10 +54,10 @@
                 <Separator/>
                 <StackPanel Background="Transparent" Width="175" Height="45" Name="stMaterias" MouseLeftButtonDown="stMaterias_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center">
                     <StackPanel Margin="10">
-                        <materialDesign:PackIcon Foreground="White" Kind="BookOpenPageVariant" Height="25" Width="25"/>
+                        <materialDesign:PackIcon Foreground="White" Kind="AccountGroup" Height="25" Width="25"/>
                     </StackPanel>
                     <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
-                        <TextBlock Text="Materias" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock Text="Docentes" FontSize="16" FontWeight="Bold" Foreground="White"/>
                     </StackPanel>
                 </StackPanel>
 
@@ -94,10 +94,10 @@
                 <Separator/>
                 <StackPanel Background="Transparent" Width="175" Height="45" Name="stDocentes" MouseLeftButtonDown="stDocentes_MouseLeftButtonDown" Orientation="Horizontal" VerticalAlignment="Center">
                     <StackPanel Margin="10">
-                        <materialDesign:PackIcon Foreground="White" Kind="AccountGroup" Height="25" Width="25"/>
+                        <materialDesign:PackIcon Foreground="White" Kind="BookOpenPageVariant" Height="25" Width="25"/>
                     </StackPanel>
                     <StackPanel VerticalAlignment="Center" Margin="0,0,10,0">
-                        <TextBlock Text="Docentes" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock Text="Materias" FontSize="16" FontWeight="Bold" Foreground="White"/>
                     </StackPanel>
                 </StackPanel>
 

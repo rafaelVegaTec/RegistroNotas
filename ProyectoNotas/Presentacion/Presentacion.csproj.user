@@ -16,7 +16,10 @@
     <Compile Update="UserController\Alertas\ucEliminar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserController\Alertas\ucExito.xaml.cs">
+    <Compile Update="UserController\Alertas\ucExisteAlumno.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserController\Alertas\ucExitoAlerta.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserController\AlumnosController\AlumnosHome.xaml.cs">
@@ -36,7 +39,10 @@
     <Page Update="UserController\Alertas\ucEliminar.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserController\Alertas\ucExito.xaml">
+    <Page Update="UserController\Alertas\ucExisteAlumno.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserController\Alertas\ucExitoAlerta.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserController\AlumnosController\AlumnosHome.xaml">

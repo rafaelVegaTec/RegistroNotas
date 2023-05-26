@@ -58,10 +58,6 @@ namespace Presentacion
             stPanelCentro.Children.Clear();
             AlumnosHome alumnosHome = new AlumnosHome();
             stPanelCentro.Children.Add(alumnosHome);
-
-
-
-
         }
 
         private void stMaterias_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
