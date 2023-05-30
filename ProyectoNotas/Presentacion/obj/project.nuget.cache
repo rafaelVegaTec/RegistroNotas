@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZBr93L+NCoe7ntzZMvm18lc37fn//oV5E/XRtDB8YzKNO1WIOWpAq8YNDSfTb6ietGydF2lUtCuPBEgRddGK1g==",
+  "dgSpecHash": "LMhjaSh/iQ/y2Rt5G5uazE1gC2ObEY6c1mA74I79qXa0RFvdZFUkYqVt+DC5vGhMmbExf4vXdKDTnsPcbpte0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\Presentacion\\Presentacion.csproj",
+  "projectFilePath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\Presentacion\\Presentacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rafae\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
     "C:\\Users\\rafae\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",

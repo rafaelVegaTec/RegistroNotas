@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\
 Presentacion
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\Presentacion\App.xaml
-7533347723
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\App.xaml
+8830513796
 
-9228348262
-205174603986
-MainWindow.xaml;UserController\Alertas\ucCamObli.xaml;UserController\Alertas\ucCancelar.xaml;UserController\Alertas\ucEliminar.xaml;UserController\Alertas\ucExisteAlumno.xaml;UserController\Alertas\ucExitoAlerta.xaml;UserController\AlumnosController\AlumnosHome.xaml;
+10773823942
+205906402859
+MainWindow.xaml;UserController\Alertas\ucCamObli.xaml;UserController\Alertas\ucCancelar.xaml;UserController\Alertas\ucEliminar.xaml;UserController\Alertas\ucExisteAlumno.xaml;UserController\Alertas\ucExitoAlerta.xaml;UserController\AlumnosController\AlumnosHome.xaml;UserController\AlumnosController\DocentesHome.xaml;
 
 False
 

@@ -10,3 +10,15 @@ C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\refint\ENTIDADES.dll
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ENTIDADES.pdb
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ref\ENTIDADES.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\bin\Debug\net7.0\ENTIDADES.deps.json
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\bin\Debug\net7.0\ENTIDADES.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\bin\Debug\net7.0\ENTIDADES.pdb
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ENTIDADES.csproj.AssemblyReference.cache
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ENTIDADES.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ENTIDADES.AssemblyInfoInputs.cache
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ENTIDADES.AssemblyInfo.cs
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ENTIDADES.csproj.CoreCompileInputs.cache
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ENTIDADES.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\refint\ENTIDADES.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ENTIDADES.pdb
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\ENTIDADES\obj\Debug\net7.0\ref\ENTIDADES.dll

@@ -20,9 +20,13 @@ namespace Presentacion.UserController.Alertas
     /// </summary>
     public partial class ucExisteAlumno : UserControl
     {
-        public ucExisteAlumno()
+        public ucExisteAlumno(string texto = "")
         {
             InitializeComponent();
+            if (!texto.Equals(""))
+            {
+                textoMensaje.Text = texto;
+            }
         }
     }
 }

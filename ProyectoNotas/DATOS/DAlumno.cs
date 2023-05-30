@@ -130,7 +130,7 @@ namespace DATOS
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = obj.nombreAlumno;
                 comando.Parameters.Add("@edad", SqlDbType.Int).Value = obj.edad;
-                comando.Parameters.Add("@fechaNacimiento", SqlDbType.VarChar).Value = obj.fechaNacimiento;
+                comando.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime).Value = obj.fechaNacimiento;
                 comando.Parameters.Add("@telefonoAlumno", SqlDbType.VarChar).Value = obj.telefonoAlumno;
                 comando.Parameters.Add("@telefonoEncargado", SqlDbType.VarChar).Value = obj.telefonoEncargado;
                 comando.Parameters.Add("@emailAlumno", SqlDbType.VarChar).Value = obj.emailAlumno;

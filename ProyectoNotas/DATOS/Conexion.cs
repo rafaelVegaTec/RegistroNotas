@@ -21,10 +21,10 @@ namespace DATOS
         private Conexion()
         {
             this.Base = "db_Escuela";
-            this.Servidor = "DESKTOP-0AIN3TR";
-            this.Usuario = string.Empty;
-            this.Clave = string.Empty;
-            this.Seguridad = true;
+            this.Servidor = "DESKTOP-SHTHRSU";
+            this.Usuario = "sa";
+            this.Clave = "Mecanica2013=";
+            this.Seguridad = false;
         }
 
         public SqlConnection CrearConexcion()
@@ -32,7 +32,7 @@ namespace DATOS
             SqlConnection cadena = new SqlConnection();
             try
             {
-                cadena.ConnectionString = $"Server={Servidor};Database={Base};Trusted_Connection={Seguridad};";
+                cadena.ConnectionString = $"Server={Servidor};Database={Base};User Id={Usuario};Password={Clave};";
             }
             catch (Exception ex)
             {

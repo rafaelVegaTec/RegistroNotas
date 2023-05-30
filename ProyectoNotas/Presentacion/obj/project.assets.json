@@ -668,11 +668,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\Presentacion\\Presentacion.csproj",
+      "projectUniqueName": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\Presentacion\\Presentacion.csproj",
       "projectName": "Presentacion",
-      "projectPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\Presentacion\\Presentacion.csproj",
+      "projectPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\Presentacion\\Presentacion.csproj",
       "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\Presentacion\\obj\\",
+      "outputPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\Presentacion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -689,8 +689,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj": {
-              "projectPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj"
+            "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj": {
+              "projectPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj"
             }
           }
         }
@@ -729,7 +729,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -118,6 +118,10 @@ namespace Presentacion
             stAsistencia.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#673ab7");
             stDocentes.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#b388ff");
             stReportes.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#673ab7");
+
+            stPanelCentro.Children.Clear();
+            DocentesHome docenteHome = new DocentesHome();
+            stPanelCentro.Children.Add(docenteHome);
         }
 
         private void stReportes_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

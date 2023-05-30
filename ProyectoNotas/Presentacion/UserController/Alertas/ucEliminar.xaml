@@ -35,9 +35,6 @@
                     <StackPanel VerticalAlignment="Center" Margin="5,0,0,0">
                         <TextBlock Text="Aceptar" FontSize="12" FontWeight="Bold"/>
                     </StackPanel>
-                    <StackPanel>
-
-                    </StackPanel>
                 </StackPanel>
             </Button>
             <Button Name="CancelarAlerta" Height="30" Margin="10,0,0,0" Background="Red" Click="CancelarAlerta_Click">
@@ -47,9 +44,6 @@
                     </StackPanel>
                     <StackPanel VerticalAlignment="Center" Margin="5,0,0,0">
                         <TextBlock Text="Cancelar" FontSize="12" FontWeight="Bold"/>
-                    </StackPanel>
-                    <StackPanel>
-
                     </StackPanel>
                 </StackPanel>
             </Button>

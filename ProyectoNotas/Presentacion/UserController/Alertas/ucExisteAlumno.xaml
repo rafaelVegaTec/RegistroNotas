@@ -22,7 +22,7 @@
                 <materialDesign:PackIcon Kind="AlertCircleOutline" Width="30" Height="30" Foreground="White"/>
             </StackPanel>
             <StackPanel VerticalAlignment="Center" Width="140">
-                <TextBlock Text="Existe Alumno" TextAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="White" TextDecorations="Underline"/>
+                <TextBlock Name="textoMensaje" Text="Existe Alumno" TextAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="White" TextDecorations="Underline"/>
             </StackPanel>
         </StackPanel>
     </Border>

@@ -41,6 +41,7 @@ namespace Presentacion.UserController.Alertas
 
         private void CancelarAlerta_Click(object sender, RoutedEventArgs e)
         {
+            valorNot.valor_confirmacion = "Cancelar";
             this.Close();
         }
     }

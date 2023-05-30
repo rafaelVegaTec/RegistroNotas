@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj": {}
+    "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\DATOS\\DATOS.csproj": {
+    "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\DATOS\\DATOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\DATOS\\DATOS.csproj",
+        "projectUniqueName": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\DATOS\\DATOS.csproj",
         "projectName": "DATOS",
-        "projectPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\DATOS\\DATOS.csproj",
+        "projectPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\DATOS\\DATOS.csproj",
         "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\DATOS\\obj\\",
+        "outputPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\DATOS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {
-                "projectPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj"
+              "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {
+                "projectPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj"
               }
             }
           }
@@ -65,18 +65,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {
+    "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj",
+        "projectUniqueName": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj",
         "projectName": "ENTIDADES",
-        "projectPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj",
+        "projectPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj",
         "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\obj\\",
+        "outputPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -120,18 +120,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj": {
+    "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj",
+        "projectUniqueName": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj",
         "projectName": "NEGOCIO",
-        "projectPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj",
+        "projectPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj",
         "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\NEGOCIO\\obj\\",
+        "outputPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\NEGOCIO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -148,11 +148,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\DATOS\\DATOS.csproj": {
-                "projectPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\DATOS\\DATOS.csproj"
+              "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\DATOS\\DATOS.csproj": {
+                "projectPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\DATOS\\DATOS.csproj"
               },
-              "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {
-                "projectPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj"
+              "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {
+                "projectPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj"
               }
             }
           }
@@ -182,7 +182,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

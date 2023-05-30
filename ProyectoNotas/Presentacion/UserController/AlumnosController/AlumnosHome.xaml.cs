@@ -4,22 +4,11 @@ using MaterialDesignThemes.Wpf;
 using NEGOCIO;
 using Presentacion.UserController.Alertas;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace Presentacion.UserController.AlumnosController
@@ -64,7 +53,7 @@ namespace Presentacion.UserController.AlumnosController
             IdAlumno = (int)modAlumnos.Row.ItemArray[0];
             txtNom.Text = modAlumnos.Row.ItemArray[1].ToString();
             txtEdad.Text = modAlumnos.Row.ItemArray[2].ToString();
-            txtFechaNa.Text = Convert.ToDateTime(modAlumnos.Row.ItemArray[3]).ToString("dd/MM/yyyy");
+            txtFechaNa.Text = modAlumnos.Row.ItemArray[3].ToString();
             txtTelAlum.Text = modAlumnos.Row.ItemArray[4].ToString();
             txtTelEnc.Text = modAlumnos.Row.ItemArray[5].ToString();
             txtCorreo.Text = modAlumnos.Row.ItemArray[6].ToString();
@@ -97,13 +86,14 @@ namespace Presentacion.UserController.AlumnosController
             else
             {
                 Alumno oAlumno = new Alumno();
-                var fecha = Regex.Match(txtFechaNaCre.Text, @"\d{2}\/\d{2}\/\d{4}").Success;
+                string fechaFormateada = Convert.ToDateTime(txtFechaNaCre.Text).ToString("dd/MM/yyyy");
+                var fecha = Regex.Match(fechaFormateada.ToString(), @"\d{2}\/\d{2}\/\d{4}").Success;
                 if (fecha)
                 {
 
                     oAlumno.nombreAlumno = txtNomCre.Text;
                     oAlumno.edad = int.Parse(txtEdadCre.Text);
-                    oAlumno.fechaNacimiento = Convert.ToDateTime($"{txtFechaNaCre.Text} {DateTime.Now.TimeOfDay}");
+                    oAlumno.fechaNacimiento = Convert.ToDateTime($"{fechaFormateada} {DateTime.Now.TimeOfDay}");
                     oAlumno.telefonoAlumno = txtTelAlumCre.Text;
                     oAlumno.telefonoEncargado = txtTelEncCre.Text;
                     oAlumno.emailAlumno = txtCorreoCre.Text;
@@ -158,13 +148,14 @@ namespace Presentacion.UserController.AlumnosController
             else
             {
                 Alumno oAlumno = new Alumno();
-                var fecha = Regex.Match(txtFechaNa.Text, @"\d{2}\/\d{2}\/\d{4}").Success;
+                string fechaFormateada = Convert.ToDateTime(txtFechaNa.Text).ToString("dd/MM/yyyy");
+                var fecha = Regex.Match(txtFechaNa.Text, @"\d*\/\d*\/\d{4}").Success;
                 if (fecha)
                 {
                     oAlumno.idAlumno = IdAlumno;
                     oAlumno.nombreAlumno = txtNom.Text;
                     oAlumno.edad = int.Parse(txtEdad.Text);
-                    oAlumno.fechaNacimiento = Convert.ToDateTime($"{txtFechaNa.Text} {DateTime.Now.TimeOfDay}");
+                    oAlumno.fechaNacimiento = Convert.ToDateTime($"{fechaFormateada} {DateTime.Now.TimeOfDay}");
                     oAlumno.telefonoAlumno = txtTelAlum.Text;
                     oAlumno.telefonoEncargado = txtTelEnc.Text;
                     oAlumno.emailAlumno = txtCorreo.Text;

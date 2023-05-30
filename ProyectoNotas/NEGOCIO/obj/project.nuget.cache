@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WOprDL+R2o9ybri5tQ5YswrrYNFF9DOuR2gDdF5T0tFbVTTkJNG6AqcZ3QxxI/2ib5dBtSQk/sLUwlUsxnxG6A==",
+  "dgSpecHash": "MCSERA38FkxSxR6DktigLx7wIIKhpzlqa1Wciu0NFNl5C5Q0YL+pnJrU92o3zMjOAYZHsDQge2P7dNdnRwUFqw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj",
+  "projectFilePath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\NEGOCIO\\NEGOCIO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rafae\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\rafae\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

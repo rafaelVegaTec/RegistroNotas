@@ -13,3 +13,18 @@ C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\DATOS\obj\Debug\net7.0\DAT
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\DATOS\obj\Debug\net7.0\refint\DATOS.dll
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\DATOS\obj\Debug\net7.0\DATOS.pdb
 C:\Users\rafae\Documents\Proyecto Notas\ProyectoNotas\DATOS\obj\Debug\net7.0\ref\DATOS.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\bin\Debug\net7.0\DATOS.deps.json
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\bin\Debug\net7.0\DATOS.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\bin\Debug\net7.0\DATOS.pdb
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\bin\Debug\net7.0\ENTIDADES.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\bin\Debug\net7.0\ENTIDADES.pdb
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\DATOS.csproj.AssemblyReference.cache
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\DATOS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\DATOS.AssemblyInfoInputs.cache
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\DATOS.AssemblyInfo.cs
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\DATOS.csproj.CoreCompileInputs.cache
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\DATOS.csproj.CopyComplete
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\DATOS.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\refint\DATOS.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\DATOS.pdb
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\DATOS\obj\Debug\net7.0\ref\DATOS.dll

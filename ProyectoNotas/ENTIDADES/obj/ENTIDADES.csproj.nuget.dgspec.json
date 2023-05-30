@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {}
+    "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {
+    "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj",
+        "projectUniqueName": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj",
         "projectName": "ENTIDADES",
-        "projectPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj",
+        "projectPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\ENTIDADES.csproj",
         "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafae\\Documents\\Proyecto Notas\\ProyectoNotas\\ENTIDADES\\obj\\",
+        "outputPath": "C:\\Users\\rafae\\Documents\\RegistroNotas\\ProyectoNotas\\ENTIDADES\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
