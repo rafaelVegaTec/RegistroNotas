@@ -38,6 +38,31 @@ namespace DATOS
             return tabla;
         }
 
+        public DataTable ListarDocentesDesactivados()
+        {
+            DataTable tabla = new DataTable();
+            SqlDataReader resultado;
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = Conexion.GetInstancia().CrearConexcion();
+                SqlCommand comando = new SqlCommand("ListarDocentesDesactivados", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                sqlCon.Open();
+                resultado = comando.ExecuteReader();
+                tabla.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+            return tabla;
+        }
+
         public DataTable FiltrarDocentes(string valor)
         {
             SqlDataReader resultado = null;
@@ -49,6 +74,33 @@ namespace DATOS
                 SqlCommand comando = new SqlCommand("FiltrarDocentes", sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = valor;
+                sqlCon.Open();
+                resultado = comando.ExecuteReader();
+                tabla.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
+            }
+            return tabla;
+        }
+
+        public DataTable FiltrarDocenteDesactivado(string valor)
+        {
+            SqlDataReader resultado;
+            DataTable tabla = new DataTable();
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = Conexion.GetInstancia().CrearConexcion();
+                SqlCommand comando = new SqlCommand("FiltrarDocenteDesactivado", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("@valor", SqlDbType.VarChar).Value = valor;
                 sqlCon.Open();
                 resultado = comando.ExecuteReader();
                 tabla.Load(resultado);
@@ -95,6 +147,37 @@ namespace DATOS
             return exito;
         }
 
+        public bool ActualizarDocente(Docente obj)
+        {
+            bool exito;
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = Conexion.GetInstancia().CrearConexcion();
+                SqlCommand comando = new SqlCommand("ActualizarDocente", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("@IdDocente", SqlDbType.Int).Value = obj.IdDocente;
+                comando.Parameters.Add("@NombreDocente", SqlDbType.VarChar).Value = obj.NombreDocente;
+                comando.Parameters.Add("@TelefonoDocente", SqlDbType.VarChar).Value = obj.TelefonoDocente;
+                comando.Parameters.Add("@EmailDocente", SqlDbType.VarChar).Value = obj.EmailDocente;
+                comando.Parameters.Add("@UsuarioDocente", SqlDbType.VarChar).Value = obj.UsuarioDocente;
+                comando.Parameters.Add("@PasswordDocente", SqlDbType.VarChar).Value = obj.PasswordDocente;
+                comando.Parameters.Add("@Estado", SqlDbType.Bit).Value = true;
+                sqlCon.Open();
+                exito = comando.ExecuteNonQuery() == 1 ? true : false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return exito;
+        }
+
         public bool DesactivarDocente(int id)
         {
             bool exito;
@@ -116,6 +199,31 @@ namespace DATOS
             finally
             {
                 if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return exito;
+        }
+
+        public bool ActivarDocente(int id)
+        {
+            bool exito;
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = Conexion.GetInstancia().CrearConexcion();
+                SqlCommand comando = new SqlCommand("ActivarDocente", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Add("@IdDocente", SqlDbType.Int).Value = id;
+                sqlCon.Open();
+                exito = comando.ExecuteNonQuery() == 1 ? true : false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
             }
             return exito;
         }
@@ -165,27 +273,5 @@ namespace DATOS
             }
             return sb.ToString();
         }
-
-        //public bool CrearDocente(Docente obj)
-        //{
-        //    bool valido;
-        //    SqlConnection sqlCon = new SqlConnection();
-        //    try
-        //    {
-        //        sqlCon = Conexion.GetInstancia().CrearConexcion();
-        //        SqlCommand comando = new SqlCommand("", sqlCon);
-        //        comando.CommandType = CommandType.StoredProcedure;
-        //        comando.Parameters.Add("", SqlDbType.VarChar).Value = obj.NombreDocente;
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        if (sqlCon.State == ConnectionState.Open) sqlCon.Close();
-        //    }
-        //}
     }
 }

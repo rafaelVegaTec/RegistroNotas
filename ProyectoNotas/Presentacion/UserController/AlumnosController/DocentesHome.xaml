@@ -53,10 +53,10 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Name="btnModificarDoc" Click="btnModificarDoc_Click" Background="#3949ab" ToolTip="Editar Alumno" Margin="5,0,0,0">
+                                            <Button Name="btnEnviarModificarDoc" Click="btnEnviarModificarDoc_Click" Background="#3949ab" ToolTip="Editar Docente" Margin="5,0,0,0">
                                                 <materialDesign:PackIcon Kind="AccountEdit"/>
                                             </Button>
-                                            <Button Name="btnEliminarDoc" Click="btnEliminarDoc_Click" Background="Red" ToolTip="Eliminar Alumno" Margin="5,0,0,0">
+                                            <Button Name="btnEliminarDoc" Click="btnEliminarDoc_Click" Background="Red" ToolTip="Eliminar Docente" Margin="5,0,0,0">
                                                 <materialDesign:PackIcon Kind="Delete" />
                                             </Button>
                                         </StackPanel>
@@ -173,7 +173,7 @@
             <!--Tab Editar Docente-->
             <TabItem Name="ModificarDocentes" Header="MODIFICAR ALUMNO" IsEnabled="False">
                 <StackPanel Width="1105" Height="720">
-                    <StackPanel Width="400" Margin="0,60,0,0">
+                    <StackPanel Width="400" Margin="0,120,0,0">
                         <GroupBox FontSize="16" FontStyle="Italic" Header="Información Alumno">
                             <StackPanel Width="305">
                                 <Border BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
@@ -183,43 +183,42 @@
                                         </StackPanel>
                                         <StackPanel VerticalAlignment="Center" Margin="8">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="Nombre Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="Nombre Docente:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
                                                 <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
                                             </StackPanel>
-                                            <Separator Width="92" HorizontalAlignment="Left"/>
-                                            <TextBox Name="txtNom" Width="250" Foreground="Black"/>
+                                            <Separator Width="118" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtNomDocMod" Width="250" Foreground="Black"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
 
-                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                <Border BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
                                     <StackPanel Orientation="Horizontal">
                                         <StackPanel VerticalAlignment="Center">
-                                            <materialDesign:PackIcon Kind="CalendarAccount" Width="25" Height="25" Margin="5"/>
+                                            <materialDesign:PackIcon Kind="Account" Width="25" Height="25" Margin="5"/>
                                         </StackPanel>
                                         <StackPanel VerticalAlignment="Center" Margin="8">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="Edad Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="Usuario:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
                                                 <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
                                             </StackPanel>
-                                            <Separator Width="75" HorizontalAlignment="Left"/>
-                                            <TextBox Name="txtEdad" Width="250" Foreground="Black"/>
+                                            <Separator Width="55" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtUsuarioMod" Width="250" Foreground="Black"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
 
-                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                <Border BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
                                     <StackPanel Orientation="Horizontal">
                                         <StackPanel VerticalAlignment="Center">
-                                            <materialDesign:PackIcon Kind="CalendarMonth" Width="25" Height="25" Margin="5"/>
+                                            <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Margin="5"/>
                                         </StackPanel>
                                         <StackPanel VerticalAlignment="Center" Margin="8">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="Fecha Nacimiento:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                                <TextBlock Text="Contraseña:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
                                             </StackPanel>
-                                            <Separator Width="103" HorizontalAlignment="Left"/>
-                                            <DatePicker Name="txtFechaNa" Width="250" Foreground="Black"/>
+                                            <Separator Width="80" HorizontalAlignment="Left"/>
+                                            <PasswordBox Name="txtContraDocMod" Width="250" Foreground="Black" Password=""/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -230,22 +229,9 @@
                                             <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Margin="5"/>
                                         </StackPanel>
                                         <StackPanel VerticalAlignment="Center" Margin="8">
-                                            <TextBlock Text="Teléfono Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                            <Separator Width="98" HorizontalAlignment="Left"/>
-                                            <TextBox Name="txtTelAlum"  Width="250" Foreground="Black"/>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-
-                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
-                                    <StackPanel Orientation="Horizontal">
-                                        <StackPanel VerticalAlignment="Center">
-                                            <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Margin="5"/>
-                                        </StackPanel>
-                                        <StackPanel VerticalAlignment="Center" Margin="8">
-                                            <TextBlock Text="Teléfono Encargado:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                            <Separator Width="113" HorizontalAlignment="Left"/>
-                                            <TextBox Name="txtTelEnc"  Width="250" Foreground="Black"/>
+                                            <TextBlock Text="Teléfono Docente:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                            <Separator Width="123" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtTelDocMod"  Width="250" Foreground="Black"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -256,15 +242,15 @@
                                             <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="5"/>
                                         </StackPanel>
                                         <StackPanel VerticalAlignment="Center" Margin="8">
-                                            <TextBlock Text="Correo Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
-                                            <Separator Width="85" HorizontalAlignment="Left"/>
-                                            <TextBox Name="txtCorreo"  Width="250" Foreground="Black"/>
+                                            <TextBlock Text="Correo Docente:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                            <Separator Width="110" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtCorreoDocMod"  Width="250" Foreground="Black"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
 
                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Width="140">
-                                    <Button Name="btnModificarDoc" Click="btnModificarDoc_Click_1" Background="#85bb5c" Height="40" Width="50">
+                                    <Button Name="btnModificarDoc" Click="btnModificarDoc_Click" Background="#85bb5c" Height="40" Width="50">
                                         <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"/>
                                     </Button>
                                     <Button Name="BtnCanModDoc" Click="BtnCanModDoc_Click" Background="#d50000" Height="40" Width="50" Margin="40,0,0,0">
@@ -305,21 +291,20 @@
                         </Border>
                     </StackPanel>
 
-                    <DataGrid Height="510" ItemsSource="{Binding}" Name="dtAlumnosElim" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <DataGrid Height="510" ItemsSource="{Binding}" Name="dtDocentesDes" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding idAlumno}" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="NOMBRE" Binding="{Binding nombreAlumno}" IsReadOnly="True" Width="250"/>
-                            <DataGridTextColumn Header="EDAD" Binding="{Binding edad}" IsReadOnly="True" Width="70"/>
-                            <DataGridTextColumn Header="FECHA NACIMIENTO" Binding="{Binding fechaNacimiento}" IsReadOnly="True" Width="180"/>
-                            <DataGridTextColumn Header="TEL. ALUMNO" Binding="{Binding telefonoAlumno}" IsReadOnly="True" Width="auto"/>
-                            <DataGridTextColumn Header="TEL. ENCARGADO" Binding="{Binding telefonoEncargado}" IsReadOnly="True" Width="auto"/>
-                            <DataGridTextColumn Header="CORREO ALUMNO" Binding="{Binding emailAlumno}" IsReadOnly="True" Width="220"/>
-                            <DataGridCheckBoxColumn Header="Estado" Binding="{Binding Estado}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IdDocente}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="NOMBRE" Binding="{Binding NombreDocente}" IsReadOnly="True" Width="275"/>
+                            <DataGridTextColumn Header="USUARIO" Binding="{Binding UsuarioDocente}" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Header="TELEFONO" Binding="{Binding TelefonoDocente}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="CORREO ELECTRONICO" Binding="{Binding EmailDocente}" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Header="TEL. ENCARGADO" Binding="{Binding PasswordDocente}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="CORREO ALUMNO" Binding="{Binding Estado}" Visibility="Hidden"/>
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Name="btnActivarDoc" Click="btnActivarDoc_Click" Background="#008613" ToolTip="Activar Alumno" Margin="5,0,0,0">
+                                            <Button Name="btnActivarDoc" Click="btnActivarDoc_Click" Background="#008613" ToolTip="Activar Docente" Margin="5,0,0,0">
                                                 <materialDesign:PackIcon Kind="AccountEdit"/>
                                             </Button>
                                         </StackPanel>

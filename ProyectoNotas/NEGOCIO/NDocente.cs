@@ -17,10 +17,22 @@ namespace NEGOCIO
             return dDocente.ListarDocentes();
         }
 
+        public DataTable ListarDocentesDesactivados()
+        {
+            DDocente dDocente = new DDocente();
+            return dDocente.ListarDocentesDesactivados();
+        }
+
         public DataTable FiltrarDocentes(string valor)
         {
             DDocente dDocente = new DDocente();
             return dDocente.FiltrarDocentes(valor);
+        }
+
+        public DataTable FiltrarDocenteDesactivado(string valor)
+        {
+            DDocente dDocente = new DDocente();
+            return dDocente.FiltrarDocenteDesactivado(valor);
         }
 
         public bool InsertarDocente(Docente obj)
@@ -39,10 +51,22 @@ namespace NEGOCIO
             return resultado;
         }
 
+        public bool ActualizarDocente(Docente obj)
+        {
+            DDocente dDocente = new DDocente();
+            return dDocente.ActualizarDocente(obj);
+        }
+
         public bool DesactivarDocente(int id)
         {
             DDocente dDocente = new DDocente();
             return dDocente.DesactivarDocente(id);
+        }
+
+        public bool ActivarDocente(int id)
+        {
+            DDocente dDocente = new DDocente();
+            return dDocente.ActivarDocente(id); ;
         }
 
         public string Encriptacion(string valor)

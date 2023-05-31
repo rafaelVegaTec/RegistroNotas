@@ -57,7 +57,6 @@ namespace Presentacion.UserController.AlumnosController
             txtTelAlum.Text = modAlumnos.Row.ItemArray[4].ToString();
             txtTelEnc.Text = modAlumnos.Row.ItemArray[5].ToString();
             txtCorreo.Text = modAlumnos.Row.ItemArray[6].ToString();
-
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)

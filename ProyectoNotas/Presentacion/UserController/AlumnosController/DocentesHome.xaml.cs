@@ -40,6 +40,7 @@ namespace Presentacion.UserController.AlumnosController
         DispatcherTimer timer = new DispatcherTimer();
 
         private int IdDocente = 0;
+        private string Contrasena = string.Empty;
 
         public DocentesHome()
         {
@@ -47,14 +48,10 @@ namespace Presentacion.UserController.AlumnosController
             CargarGridDocentes();
         }
 
+        #region Eventos
         private void btnBuscarDocentes_Click(object sender, RoutedEventArgs e)
         {
             dtDocentes.DataContext = nDocente.FiltrarDocentes(txtBuscarDocente.Text);
-        }
-
-        private void btnModificarDoc_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void btnEliminarDoc_Click(object sender, RoutedEventArgs e)
@@ -135,6 +132,61 @@ namespace Presentacion.UserController.AlumnosController
             }
         }
 
+        private void btnModificarDoc_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNomDocMod.Text.Equals(string.Empty) || txtUsuarioMod.Text.Equals(string.Empty))
+            {
+                aCamObli.Width = 405;
+                aCamObli.Height = 50;
+
+                if (!aCamObli.IsVisible)
+                {
+                    stAlertasMod.Children.Add(aCamObli);
+                    EjecutarAlerta();
+                }
+            }
+            else
+            {
+                Docente oDocente = new Docente();
+                oDocente.IdDocente = IdDocente;
+                oDocente.NombreDocente = txtNomDocMod.Text;
+                oDocente.UsuarioDocente = txtUsuarioMod.Text;
+                if (txtContraDocMod.Password.Equals(string.Empty))
+                {
+                    oDocente.PasswordDocente = Contrasena;
+                }
+                else
+                {
+                    oDocente.PasswordDocente = txtContraDocMod.Password;
+                }
+                oDocente.TelefonoDocente = txtTelDocMod.Text;
+                oDocente.EmailDocente = txtCorreoDocMod.Text;
+                bool resultado = nDocente.ActualizarDocente(oDocente);
+
+                if (resultado)
+                {
+                    LimpiarCampos();
+                    tbGeneralDocentes.SelectedIndex = 0;
+                    CrearDocentes.IsEnabled = true;
+                    ModificarDocentes.IsEnabled = false;
+                    tbListarDocentes.IsEnabled = true;
+                    tbEliminar.IsEnabled = true;
+                    CargarGridDocentes();
+                    aExito.Height = 50;
+                    aExito.Width = 200;
+                    if (!aExito.IsVisible)
+                    {
+                        stAlertasExito.Children.Add(aExito);
+                        EjecutarAlerta();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error: Contacte al administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
         private void BtnCanCreDoc_Click(object sender, RoutedEventArgs e)
         {
             tbGeneralDocentes.SelectedIndex = 0;
@@ -147,38 +199,71 @@ namespace Presentacion.UserController.AlumnosController
             EjecutarAlerta();
         }
 
-        private void btnModificarDoc_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void BtnCanModDoc_Click(object sender, RoutedEventArgs e)
         {
-
+            tbGeneralDocentes.SelectedIndex = 0;
+            CrearDocentes.IsEnabled = true;
+            ModificarDocentes.IsEnabled = false;
+            tbListarDocentes.IsEnabled = true;
+            tbEliminar.IsEnabled = true;
+            LimpiarCampos();
+            aCancelar.Height = 50;
+            aCancelar.Width = 200;
+            stAlertasExito.Children.Add(aCancelar);
+            EjecutarAlerta();
         }
 
         private void btnActivarDoc_Click(object sender, RoutedEventArgs e)
         {
-
+            DataRowView row = (DataRowView)dtDocentesDes.SelectedItem;
+            IdDocente = (int)row.Row.ItemArray[0];
+            bool respuesta = nDocente.ActivarDocente(IdDocente);
+            if (respuesta)
+            {
+                CargarGridDocentes();
+                tbGeneralDocentes.SelectedIndex = 0;
+                aExito.Height = 50;
+                aExito.Width = 200;
+                if (!aExito.IsVisible)
+                {
+                    stAlertasExito.Children.Add(aExito);
+                    EjecutarAlerta();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: Contacte al administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnBuscarElimDoc_Click(object sender, RoutedEventArgs e)
         {
-
+            dtDocentesDes.DataContext = nDocente.FiltrarDocenteDesactivado(txtFiltrarElim.Text);
         }
 
-        private void LimpiarCampos()
+        private void btnEnviarModificarDoc_Click(object sender, RoutedEventArgs e)
         {
-            txtNomDocCre.Clear();
-            txtTelDocCre.Clear();
-            txtCorreoDocCre.Clear();
-            txtUsuario.Clear();
-            txtContraDocCre.Clear();
-        }
+            CrearDocentes.IsEnabled = false;
+            ModificarDocentes.IsEnabled = true;
+            tbListarDocentes.IsEnabled = false;
+            tbEliminar.IsEnabled = false;
+            tbGeneralDocentes.SelectedIndex = 2;
 
+            DataRowView modAlumnos = (DataRowView)dtDocentes.SelectedItem;
+            IdDocente = (int)modAlumnos.Row.ItemArray[0];
+            txtNomDocMod.Text = modAlumnos.Row.ItemArray[1].ToString();
+            txtUsuarioMod.Text = modAlumnos.Row.ItemArray[4].ToString();
+            Contrasena = modAlumnos.Row.ItemArray[5].ToString();
+            txtTelDocMod.Text = modAlumnos.Row.ItemArray[2].ToString();
+            txtCorreoDocMod.Text = modAlumnos.Row.ItemArray[3].ToString();
+        }
+        #endregion
+
+        #region Metodos
         private void CargarGridDocentes()
         {
             dtDocentes.DataContext = nDocente.ListarDocentes();
+            dtDocentesDes.DataContext = nDocente.ListarDocentesDesactivados();
         }
 
         private void EjecutarAlerta()
@@ -197,5 +282,21 @@ namespace Presentacion.UserController.AlumnosController
             stAlertas.Children.Remove(aExiste);
             timer.Stop();
         }
+
+        private void LimpiarCampos()
+        {
+            txtNomDocCre.Clear();
+            txtTelDocCre.Clear();
+            txtCorreoDocCre.Clear();
+            txtUsuario.Clear();
+            txtContraDocCre.Clear();
+
+            txtNomDocMod.Clear();
+            txtUsuarioMod.Clear();
+            txtContraDocMod.Clear();
+            txtTelDocMod.Clear();
+            txtCorreoDocMod.Clear();
+        }
+        #endregion
     }
 }
