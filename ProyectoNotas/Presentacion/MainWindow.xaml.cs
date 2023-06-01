@@ -70,6 +70,10 @@ namespace Presentacion
             stAsistencia.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#673ab7");
             stDocentes.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#673ab7");
             stReportes.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#673ab7");
+
+            stPanelCentro.Children.Clear();
+            MateriasHome aMatetiasHome = new MateriasHome();
+            stPanelCentro.Children.Add(aMatetiasHome);
         }
 
         private void stGrados_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

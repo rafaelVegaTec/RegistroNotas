@@ -273,5 +273,31 @@ namespace DATOS
             }
             return sb.ToString();
         }
+
+        public DataTable MostrarDocentes()
+        {
+            SqlDataReader resultado = null;
+            DataTable tabla = new DataTable();
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon = Conexion.GetInstancia().CrearConexcion();
+                SqlCommand comando = new SqlCommand("MostrarDocentes", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+                sqlCon.Open();
+                resultado = comando.ExecuteReader();
+                tabla.Load(resultado);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open) { sqlCon.Close(); }
+            }
+            return tabla;
+        }
     }
 }

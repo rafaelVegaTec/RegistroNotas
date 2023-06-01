@@ -74,5 +74,11 @@ namespace NEGOCIO
             DDocente dDocente = new DDocente();
             return dDocente.Encriptacion(valor);
         }
+
+        public DataTable MostrarDocentes()
+        {
+            DDocente dDocente = new DDocente();
+            return dDocente.MostrarDocentes();
+        }
     }
 }

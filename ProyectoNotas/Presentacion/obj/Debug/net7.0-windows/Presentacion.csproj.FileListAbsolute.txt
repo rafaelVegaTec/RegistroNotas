@@ -100,3 +100,5 @@ C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\obj\Debug\net7
 C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\Presentacion.pdb
 C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\Presentacion.genruntimeconfig.cache
 C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\ref\Presentacion.dll
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\UserController\AlumnosController\MateriasHome.g.cs
+C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\obj\Debug\net7.0-windows\UserController\AlumnosController\MateriasHome.baml

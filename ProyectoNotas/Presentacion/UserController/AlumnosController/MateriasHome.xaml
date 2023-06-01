@@ -1,0 +1,251 @@
+﻿<UserControl x:Class="Presentacion.UserController.AlumnosController.MateriasHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentacion.UserController.AlumnosController"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"             
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1105">
+
+    <StackPanel Name="panelMaterias">
+        <TabControl x:Name="tbGeneralMaterias" Style="{StaticResource MaterialDesignFilledTabControl}">
+            <TabItem Name="ListaMaterias" Header="LISTAR MATERIAS">
+                <StackPanel Height="720">
+
+                    <!---Filtros y modificacion -->
+                    <StackPanel HorizontalAlignment="Center">
+                        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="20">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="10" Orientation="Horizontal">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="Buscar Materia:" FontSize="16" FontWeight="Bold" Foreground="Black"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                        <TextBox Name="txtFiltrar" Width="250" FontSize="16"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                                        <Button Name="btnBuscarMateria" Click="btnBuscarMateria_Click" Background="#fbc02d" ToolTip="Buscar Alumno">
+                                            <materialDesign:PackIcon Kind="AccountFilter" />
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <DataGrid Height="510" Width="565" ItemsSource="{Binding}" Name="dtMaterias" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IdMateria}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="NOMBRE MATERIA" Binding="{Binding NombreMateria}" IsReadOnly="True" Width="220"/>
+                            <DataGridTextColumn Header="NOMBRE DOCENTE" Binding="{Binding NombreDocente}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="FECHA NACIMIENTO" Binding="{Binding Estado}" Visibility="Hidden"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Name="btnModificar" Click="btnModificar_Click" Background="#3949ab" ToolTip="Editar Alumno" Margin="5,0,0,0">
+                                                <materialDesign:PackIcon Kind="AccountEdit"/>
+                                            </Button>
+                                            <Button Name="btnEliminar" Background="Red" ToolTip="Eliminar Alumno" Margin="5,0,0,0">
+                                                <materialDesign:PackIcon Kind="Delete" />
+                                            </Button>
+                                        </StackPanel>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Name="stAlertasExito" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <!--Tab crear alumno-->
+            <TabItem Name="CrearMateria" Header="CREAR MATERIA">
+                <StackPanel Width="1105" Height="720">
+                    <StackPanel Width="400" Margin="0,220,0,0">
+                        <GroupBox FontSize="16" FontStyle="Italic" Header="Información Materia">
+                            <StackPanel Width="305">
+                                <Border BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="Book" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Materia:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="114" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtMateriaCre" Width="250" Foreground="Black"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="CalendarAccount" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Docente:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="118" HorizontalAlignment="Left"/>
+                                            <ComboBox Grid.Row="0" Name="cmbDocentes" Width="250" ItemsSource="{Binding}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding NombreDocente}"/>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Width="140">
+                                    <Button Name="btnCrearAlum" Background="#85bb5c" Click="btnCrearAlum_Click" Height="40" Width="50">
+                                        <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"/>
+                                    </Button>
+                                    <Button Name="BtnCanCreAlum" Click="BtnCanCreAlum_Click" Background="#d50000" Height="40" Width="50" Margin="40,0,0,0">
+                                        <materialDesign:PackIcon Kind="CloseCircle" Width="20" Height="20"/>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </GroupBox>
+                    </StackPanel>
+
+                    <StackPanel Name="stAlertas" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <!--Tab Editar alumno-->
+            <TabItem Name="ModificarMateria" Header="MODIFICAR MATERIA" IsEnabled="False">
+                <StackPanel Width="1105" Height="720">
+                    <StackPanel Width="400" Margin="0,220,0,0">
+                        <GroupBox FontSize="16" FontStyle="Italic" Header="Información Materia">
+                            <StackPanel Width="305">
+                                <Border BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="Book" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Materia:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="114" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtMateriaMod" Width="250" Foreground="Black"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="CalendarAccount" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Docente:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="118" HorizontalAlignment="Left"/>
+                                            <ComboBox Grid.Row="0" Name="cmbDocentesMod" Width="250" ItemsSource="{Binding}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding NombreDocente}"/>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Width="140">
+                                    <Button Name="btnModificarMateria" Click="btnModificarMateria_Click" Background="#85bb5c" Height="40" Width="50">
+                                        <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"/>
+                                    </Button>
+                                    <Button Name="BtnCanModAlum" Click="BtnCanModAlum_Click" Background="#d50000" Height="40" Width="50" Margin="40,0,0,0">
+                                        <materialDesign:PackIcon Kind="CloseCircle" Width="20" Height="20"/>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </GroupBox>
+                    </StackPanel>
+
+                    <StackPanel Name="stAlertasMod" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Name="tbEliminar" Header="ALUMNOS ELIMINADOS">
+                <StackPanel Height="720">
+                    <!---Filtros y modificacion -->
+                    <StackPanel HorizontalAlignment="Center">
+                        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="20">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="10" Orientation="Horizontal">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="Buscar Alumno:" FontSize="16" FontWeight="Bold" Foreground="Black"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                        <TextBox Name="txtFiltrarElim" Width="250" FontSize="16"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                                        <Button Name="btnBuscarElim"  Background="#fbc02d" ToolTip="Buscar Alumno">
+                                            <materialDesign:PackIcon Kind="AccountFilter" />
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <DataGrid Height="510" ItemsSource="{Binding}" Name="dtAlumnosElim" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding idAlumno}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="NOMBRE" Binding="{Binding nombreAlumno}" IsReadOnly="True" Width="250"/>
+                            <DataGridTextColumn Header="EDAD" Binding="{Binding edad}" IsReadOnly="True" Width="70"/>
+                            <DataGridTextColumn Header="FECHA NACIMIENTO" Binding="{Binding fechaNacimiento}" IsReadOnly="True" Width="180"/>
+                            <DataGridTextColumn Header="TEL. ALUMNO" Binding="{Binding telefonoAlumno}" IsReadOnly="True" Width="auto"/>
+                            <DataGridTextColumn Header="TEL. ENCARGADO" Binding="{Binding telefonoEncargado}" IsReadOnly="True" Width="auto"/>
+                            <DataGridTextColumn Header="CORREO ALUMNO" Binding="{Binding emailAlumno}" IsReadOnly="True" Width="220"/>
+                            <DataGridCheckBoxColumn Header="Estado" Binding="{Binding Estado}" Visibility="Hidden"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Name="btnActivar" Background="#008613" ToolTip="Activar Alumno" Margin="5,0,0,0">
+                                                <materialDesign:PackIcon Kind="AccountEdit"/>
+                                            </Button>
+                                        </StackPanel>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Name="stAlertasExitoEli" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</UserControl>
