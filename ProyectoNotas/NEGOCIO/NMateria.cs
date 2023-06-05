@@ -16,6 +16,25 @@ namespace NEGOCIO
             DMateria dMateria = new DMateria();
             return dMateria.ListarMaterias();
         }
+
+        public DataTable ListarMateriasDesactivadas()
+        {
+            DMateria dMateria = new DMateria();
+            return dMateria.ListarMateriasDesactivadas();
+        }
+
+        public DataTable FiltrarMateria(string valor)
+        {
+            DMateria dMateria = new DMateria();
+            return dMateria.FiltrarMateria(valor);
+        }
+
+        public DataTable FiltrarMateriasDesactivadas(string valor)
+        {
+            DMateria dMateria = new DMateria();
+            return dMateria.FiltrarMateriasDesactivadas(valor);
+        }
+
         public bool CrearMateria(Materia obj)
         {
             DMateria dMateria = new DMateria();
@@ -26,6 +45,18 @@ namespace NEGOCIO
         {
             DMateria dMateria = new DMateria();
             return dMateria.ActualizarMateria(obj);
+        }
+
+        public bool DesactivarMateria(int id)
+        {
+            DMateria dMateria = new DMateria();
+            return dMateria.DesactivarMateria(id);
+        }
+
+        public bool ActivarMateria(int id)
+        {
+            DMateria dMateria = new DMateria();
+            return dMateria.ActivarMateria(id);
         }
     }
 }

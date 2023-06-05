@@ -45,10 +45,10 @@ namespace Presentacion.UserController.AlumnosController
         {
             InitializeComponent();
             CargarMaterias();
-            cmbDocentes.DataContext = nDocente.MostrarDocentes();
-            cmbDocentesMod.DataContext = nDocente.MostrarDocentes();
+            CargarCombobox();
         }
 
+        #region Eventos
         private void btnCrearAlum_Click(object sender, RoutedEventArgs e)
         {
             if (txtMateriaCre.Text.Equals(string.Empty) || cmbDocentes.Text.Equals(string.Empty))
@@ -127,13 +127,10 @@ namespace Presentacion.UserController.AlumnosController
                 {
                     item++;
                     cmbDocentesMod.SelectedIndex = item;
-                    cmbDocentes.SelectedItem = row;
                     break;
                 }
                 item++;
             }
-
-
         }
 
         private void btnModificarMateria_Click(object sender, RoutedEventArgs e)
@@ -197,21 +194,87 @@ namespace Presentacion.UserController.AlumnosController
 
         private void btnBuscarMateria_Click(object sender, RoutedEventArgs e)
         {
-
+            dtMaterias.DataContext = nMateria.FiltrarMateria(txtFiltrar.Text);
         }
 
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            Notificacion not = new Notificacion();
+            ucEliminar aEliminar = new ucEliminar(not);
+            DataRowView row = (DataRowView)dtMaterias.SelectedItem;
+            IdMateria = (int)row.Row.ItemArray[0];
+            aEliminar.ShowDialog();
+            var resultado = not.valor_confirmacion;
+            if (resultado.Equals("Ok"))
+            {
+                bool respuesta = nMateria.DesactivarMateria(IdMateria);
+                if (respuesta)
+                {
+                    CargarMaterias();
+                    aExito.Height = 50;
+                    aExito.Width = 200;
+                    if (!aExito.IsVisible)
+                    {
+                        stAlertasExito.Children.Add(aExito);
+                        EjecutarAlerta();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error: Contacte al administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
 
+        private void btnActivar_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView row = (DataRowView)dtMateriasEliminadas.SelectedItem;
+            IdMateria = (int)row.Row.ItemArray[0];
+            bool respuesta = nMateria.ActivarMateria(IdMateria);
+            if (respuesta)
+            {
+                CargarMaterias();
+                tbGeneralMaterias.SelectedIndex = 0;
+                aExito.Height = 50;
+                aExito.Width = 200;
+                if (!aExito.IsVisible)
+                {
+                    stAlertasExito.Children.Add(aExito);
+                    EjecutarAlerta();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: Contacte al administrador", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnBuscarElim_Click(object sender, RoutedEventArgs e)
+        {
+            dtMateriasEliminadas.DataContext = nMateria.FiltrarMateriasDesactivadas(txtFiltrarElim.Text);
+        }
+        #endregion
 
         #region Metodos
+        private void CargarCombobox()
+        {
+            cmbDocentes.DataContext = nDocente.MostrarDocentes();
+            cmbDocentesMod.DataContext = nDocente.MostrarDocentes();
+        }
+
         private void CargarMaterias()
         {
             dtMaterias.DataContext = nMateria.ListarMaterias();
+            dtMateriasEliminadas.DataContext = nMateria.ListarMateriasDesactivadas();
         }
 
         private void LimpiarCampos()
         {
             txtMateriaCre.Clear();
             cmbDocentes.SelectedIndex = -1;
+
+            txtMateriaMod.Clear();
+            cmbDocentesMod.SelectedIndex = -1;
         }
 
         private void EjecutarAlerta()
@@ -230,6 +293,6 @@ namespace Presentacion.UserController.AlumnosController
             stAlertas.Children.Remove(aExiste);
             timer.Stop();
         }
-        #endregion
+        #endregion        
     }
 }

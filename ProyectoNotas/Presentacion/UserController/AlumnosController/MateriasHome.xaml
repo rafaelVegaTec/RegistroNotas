@@ -54,7 +54,7 @@
                                             <Button Name="btnModificar" Click="btnModificar_Click" Background="#3949ab" ToolTip="Editar Alumno" Margin="5,0,0,0">
                                                 <materialDesign:PackIcon Kind="AccountEdit"/>
                                             </Button>
-                                            <Button Name="btnEliminar" Background="Red" ToolTip="Eliminar Alumno" Margin="5,0,0,0">
+                                            <Button Name="btnEliminar" Click="btnEliminar_Click" Background="Red" ToolTip="Eliminar Alumno" Margin="5,0,0,0">
                                                 <materialDesign:PackIcon Kind="Delete" />
                                             </Button>
                                         </StackPanel>
@@ -194,7 +194,7 @@
                 </StackPanel>
             </TabItem>
 
-            <TabItem Name="tbEliminar" Header="ALUMNOS ELIMINADOS">
+            <TabItem Name="tbEliminar" Header="MATERIAS ELIMINADAS">
                 <StackPanel Height="720">
                     <!---Filtros y modificacion -->
                     <StackPanel HorizontalAlignment="Center">
@@ -202,13 +202,13 @@
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel Margin="10" Orientation="Horizontal">
                                     <StackPanel VerticalAlignment="Center">
-                                        <TextBlock Text="Buscar Alumno:" FontSize="16" FontWeight="Bold" Foreground="Black"/>
+                                        <TextBlock Text="Buscar Materia:" FontSize="16" FontWeight="Bold" Foreground="Black"/>
                                     </StackPanel>
                                     <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
                                         <TextBox Name="txtFiltrarElim" Width="250" FontSize="16"/>
                                     </StackPanel>
                                     <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
-                                        <Button Name="btnBuscarElim"  Background="#fbc02d" ToolTip="Buscar Alumno">
+                                        <Button Name="btnBuscarElim" Click="btnBuscarElim_Click"  Background="#fbc02d" ToolTip="Buscar Alumno">
                                             <materialDesign:PackIcon Kind="AccountFilter" />
                                         </Button>
                                     </StackPanel>
@@ -217,21 +217,17 @@
                         </Border>
                     </StackPanel>
 
-                    <DataGrid Height="510" ItemsSource="{Binding}" Name="dtAlumnosElim" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <DataGrid Height="510" Width="520" ItemsSource="{Binding}" Name="dtMateriasEliminadas" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding idAlumno}" Visibility="Hidden"/>
-                            <DataGridTextColumn Header="NOMBRE" Binding="{Binding nombreAlumno}" IsReadOnly="True" Width="250"/>
-                            <DataGridTextColumn Header="EDAD" Binding="{Binding edad}" IsReadOnly="True" Width="70"/>
-                            <DataGridTextColumn Header="FECHA NACIMIENTO" Binding="{Binding fechaNacimiento}" IsReadOnly="True" Width="180"/>
-                            <DataGridTextColumn Header="TEL. ALUMNO" Binding="{Binding telefonoAlumno}" IsReadOnly="True" Width="auto"/>
-                            <DataGridTextColumn Header="TEL. ENCARGADO" Binding="{Binding telefonoEncargado}" IsReadOnly="True" Width="auto"/>
-                            <DataGridTextColumn Header="CORREO ALUMNO" Binding="{Binding emailAlumno}" IsReadOnly="True" Width="220"/>
-                            <DataGridCheckBoxColumn Header="Estado" Binding="{Binding Estado}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IdMateria}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="NOMBRE MATERIA" Binding="{Binding NombreMateria}" IsReadOnly="True" Width="220"/>
+                            <DataGridTextColumn Header="NOMBRE DOCENTE" Binding="{Binding NombreDocente}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="FECHA NACIMIENTO" Binding="{Binding Estado}" Visibility="Hidden"/>
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Name="btnActivar" Background="#008613" ToolTip="Activar Alumno" Margin="5,0,0,0">
+                                            <Button Name="btnActivar" Click="btnActivar_Click" Background="#008613" ToolTip="Activar Alumno" Margin="5,0,0,0">
                                                 <materialDesign:PackIcon Kind="AccountEdit"/>
                                             </Button>
                                         </StackPanel>

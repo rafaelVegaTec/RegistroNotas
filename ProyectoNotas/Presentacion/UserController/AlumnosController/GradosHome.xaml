@@ -1,0 +1,338 @@
+﻿<UserControl x:Class="Presentacion.UserController.AlumnosController.GradosHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentacion.UserController.AlumnosController"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"             
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1105">
+    <StackPanel Name="panelAlumnos">
+        <TabControl x:Name="tbGeneralGraddos" Style="{StaticResource MaterialDesignFilledTabControl}">
+            <TabItem Name="ListaGrados" Header="LISTAR GRADOS">
+                <StackPanel Height="720">
+
+                    <!---Filtros y modificacion -->
+                    <StackPanel HorizontalAlignment="Center">
+                        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="20">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="10" Orientation="Horizontal">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="Buscar Grado:" FontSize="16" FontWeight="Bold" Foreground="Black"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                        <TextBox Name="txtFiltrar" Width="250" FontSize="16"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                                        <Button Name="btnBuscar" Click="btnBuscar_Click" Background="#fbc02d" ToolTip="Buscar Alumno">
+                                            <materialDesign:PackIcon Kind="AccountFilter" />
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <DataGrid Height="510" ItemsSource="{Binding}" Name="dtGrados" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IdGrado}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="NOMBRE GRADO" Binding="{Binding NombreGrado}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="SECCIÓN" Binding="{Binding Seccion}" IsReadOnly="True" Width="140"/>
+                            <DataGridTextColumn Header="NOMBRE ALUMNO" Binding="{Binding nombreAlumno}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="NOMBRE DOCENTE" Binding="{Binding NombreDocente}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="MATERIA" Binding="{Binding NombreMateria}" IsReadOnly="True" Width="200"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Name="btnModificarGrado" Click="btnModificarGrado_Click" Background="#3949ab" ToolTip="Editar Alumno" Margin="5,0,0,0">
+                                                <materialDesign:PackIcon Kind="AccountEdit"/>
+                                            </Button>
+                                            <Button Name="btnEliminarGrado" Click="btnEliminarGrado_Click" Background="Red" ToolTip="Eliminar Alumno" Margin="5,0,0,0">
+                                                <materialDesign:PackIcon Kind="Delete" />
+                                            </Button>
+                                        </StackPanel>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Name="stAlertasExito" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <!--Tab crear Grado-->
+            <TabItem Name="CrearGrado" Header="CREAR GRADO">
+                <StackPanel Width="1105" Height="720">
+                    <StackPanel Width="400" Margin="0,140,0,0">
+                        <GroupBox FontSize="16" FontStyle="Italic" Header="Información Grado">
+                            <StackPanel Width="305">
+                                <Border BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="BookVariant" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Grado:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="105" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtNomGrado" Width="250" Foreground="Black"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="AlphaABox" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Seccion:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="55" HorizontalAlignment="Left"/>
+                                            <ComboBox Name="cmbSeccion" Width="250" Foreground="Black">
+                                                <ComboBoxItem>Sección - A</ComboBoxItem>
+                                                <ComboBoxItem>Sección - B</ComboBoxItem>
+                                                <ComboBoxItem>Sección - C</ComboBoxItem>
+                                                <ComboBoxItem>Sección - D</ComboBoxItem>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="AccountSchool" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="118" HorizontalAlignment="Left"/>
+                                            <ComboBox Grid.Row="0" Name="cmbAlumno" Width="250" ItemsSource="{Binding}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding nombreAlumno}"/>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="AccountSchool" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Materia:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="118" HorizontalAlignment="Left"/>
+                                            <ComboBox Grid.Row="0" Name="cmbMateria" Width="250" ItemsSource="{Binding}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding MateriaDocente}"/>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Width="140">
+                                    <Button Name="btnCrearGrado" Click="btnCrearGrado_Click" Background="#85bb5c" Height="40" Width="50">
+                                        <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"/>
+                                    </Button>
+                                    <Button Name="btnCancelarGrado" Click="btnCancelarGrado_Click" Background="#d50000" Height="40" Width="50" Margin="40,0,0,0">
+                                        <materialDesign:PackIcon Kind="CloseCircle" Width="20" Height="20"/>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </GroupBox>
+                    </StackPanel>
+
+                    <StackPanel Name="stAlertas" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <!--Tab Editar alumno-->
+            <TabItem Name="ModificarGrado" Header="MODIFICAR GRADO" IsEnabled="False">
+                <StackPanel Width="1105" Height="720">
+                    <StackPanel Width="400" Margin="0,140,0,0">
+                        <GroupBox FontSize="16" FontStyle="Italic" Header="Información Grado">
+                            <StackPanel Width="305">
+                                <Border BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="BookVariant" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Grado:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="105" HorizontalAlignment="Left"/>
+                                            <TextBox Name="txtNomGradoMod" Width="250" Foreground="Black"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="AlphaABox" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Seccion:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="55" HorizontalAlignment="Left"/>
+                                            <ComboBox Name="cmbSeccionMod" Width="250" Foreground="Black">
+                                                <ComboBoxItem>--Seleccione una Sección--</ComboBoxItem>
+                                                <ComboBoxItem>Sección - A</ComboBoxItem>
+                                                <ComboBoxItem>Sección - B</ComboBoxItem>
+                                                <ComboBoxItem>Sección - C</ComboBoxItem>
+                                                <ComboBoxItem>Sección - D</ComboBoxItem>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="AccountSchool" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Alumno:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="118" HorizontalAlignment="Left"/>
+                                            <ComboBox Grid.Row="0" Name="cmbAlumnoMod" Width="250" ItemsSource="{Binding}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding nombreAlumno}"/>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Margin="0,10,0,0" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <materialDesign:PackIcon Kind="AccountSchool" Width="25" Height="25" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" Margin="8">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Nombre Materia:" FontWeight="Bold"  FontStyle="Italic" Foreground="Black"/>
+                                                <TextBlock Text="(*)" Margin="5,0,0,0" Foreground="Red"/>
+                                            </StackPanel>
+                                            <Separator Width="118" HorizontalAlignment="Left"/>
+                                            <ComboBox Grid.Row="0" Name="cmbMateriaMod" Width="250" ItemsSource="{Binding}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding MateriaDocente}"/>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Width="140">
+                                    <Button Name="btnModificarGradoMod" Click="btnModificarGradoMod_Click" Background="#85bb5c" Height="40" Width="50">
+                                        <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"/>
+                                    </Button>
+                                    <Button Name="BtnCanModGrado" Click="BtnCanModGrado_Click" Background="#d50000" Height="40" Width="50" Margin="40,0,0,0">
+                                        <materialDesign:PackIcon Kind="CloseCircle" Width="20" Height="20"/>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </GroupBox>
+                    </StackPanel>
+
+                    <StackPanel Name="stAlertasMod" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Name="tbEliminar" Header="GRADOS ELIMINADOS">
+                <StackPanel Height="720">
+
+                    <!---Filtros y modificacion -->
+                    <StackPanel HorizontalAlignment="Center">
+                        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" Margin="20">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="10" Orientation="Horizontal">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="Buscar Grado:" FontSize="16" FontWeight="Bold" Foreground="Black"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                        <TextBox Name="txtFiltrarEli" Width="250" FontSize="16"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                                        <Button Name="btnBuscarEli" Click="btnBuscarEli_Click" Background="#fbc02d" ToolTip="Buscar Alumno">
+                                            <materialDesign:PackIcon Kind="AccountFilter" />
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <DataGrid Height="510" ItemsSource="{Binding}" Name="dtGradosEli" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IdGrado}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="NOMBRE GRADO" Binding="{Binding NombreGrado}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="SECCIÓN" Binding="{Binding Seccion}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="NOMBRE ALUMNO" Binding="{Binding nombreAlumno}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="NOMBRE DOCENTE" Binding="{Binding NombreDocente}" IsReadOnly="True" Width="200"/>
+                            <DataGridTextColumn Header="MATERIA" Binding="{Binding NombreMateria}" IsReadOnly="True" Width="200"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Name="btnActivar" Click="btnActivar_Click" Background="#008613" ToolTip="Activar Grado" Margin="5,0,0,0">
+                                                <materialDesign:PackIcon Kind="AccountEdit"/>
+                                            </Button>
+                                        </StackPanel>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Name="stAlertasExitoEli" Margin="20" HorizontalAlignment="Right">
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</UserControl>

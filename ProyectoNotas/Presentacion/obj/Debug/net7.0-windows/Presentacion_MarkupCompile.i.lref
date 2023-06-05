@@ -1,12 +1,4 @@
 ﻿
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\App.xaml;;
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\MainWindow.xaml;;
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\UserController\Alertas\ucCamObli.xaml;;
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\UserController\Alertas\ucCancelar.xaml;;
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\UserController\Alertas\ucEliminar.xaml;;
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\UserController\Alertas\ucExisteAlumno.xaml;;
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\UserController\Alertas\ucExitoAlerta.xaml;;
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\UserController\AlumnosController\AlumnosHome.xaml;;
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\UserController\AlumnosController\DocentesHome.xaml;;
-FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\UserController\AlumnosController\MateriasHome.xaml;;
+
+FC:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\UserController\AlumnosController\GradosHome.xaml;;
 

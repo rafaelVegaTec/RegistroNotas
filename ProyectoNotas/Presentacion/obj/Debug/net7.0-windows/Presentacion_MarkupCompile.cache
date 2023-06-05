@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\rafae\Documents\RegistroNotas\ProyectoNotas\Presentacion\App.xaml
-91594252094
+10-1819990888
 
-111912953930
+121046759703
 205906402859
-MainWindow.xaml;UserController\Alertas\ucCamObli.xaml;UserController\Alertas\ucCancelar.xaml;UserController\Alertas\ucEliminar.xaml;UserController\Alertas\ucExisteAlumno.xaml;UserController\Alertas\ucExitoAlerta.xaml;UserController\AlumnosController\AlumnosHome.xaml;UserController\AlumnosController\DocentesHome.xaml;UserController\AlumnosController\MateriasHome.xaml;
+MainWindow.xaml;UserController\Alertas\ucCamObli.xaml;UserController\Alertas\ucCancelar.xaml;UserController\Alertas\ucEliminar.xaml;UserController\Alertas\ucExisteAlumno.xaml;UserController\Alertas\ucExitoAlerta.xaml;UserController\AlumnosController\AlumnosHome.xaml;UserController\AlumnosController\DocentesHome.xaml;UserController\AlumnosController\GradosHome.xaml;UserController\AlumnosController\MateriasHome.xaml;
 
 False
 

@@ -28,6 +28,9 @@
     <Compile Update="UserController\AlumnosController\DocentesHome.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserController\AlumnosController\GradosHome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserController\AlumnosController\MateriasHome.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserController\AlumnosController\DocentesHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserController\AlumnosController\GradosHome.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserController\AlumnosController\MateriasHome.xaml">
